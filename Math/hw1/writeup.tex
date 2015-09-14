@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[framed,numbered]{matlab-prettifier}
+
+\begin{document}
+
+\title{Math 16-811 - HW1}
+\author{Xiang Zhi Tan}
+
+\maketitle
+
+\section{Question 1}
+implemented code:
+\lstinputlisting[style=Matlab-editor]{lduSolver.m}
+\section{Question 2}
+\begin{equation}
+A = 
+\begin{pmatrix}
+    4 & 7 & 0 \\
+    2 & 2 & -6 \\
+    1 & 2 & 1 \\
+\end{pmatrix} 
+\\
+\end{equation}
+Let $ L = I, A' = A$ \\
+apply operation $R_2 = R_2 - \frac{1}{2} R_1$ \\
+\begin{equation}
+
+A = 
+\begin{pmatrix}
+    4 & 7 & 0 \\
+    0 & -\frac{3}{2} & -6 \\
+    1 & 2 & 1 \\
+\end{pmatrix} 
+\end{equation}
+\begin{equation}
+L = 
+\begin{pmatrix}
+    1 & 0 & 0 \\
+    \frac{1}{2} & 1 & 0 \\
+    0 & 0 & 1 \\
+\end{pmatrix} 
+\end{equation}
+\section{Question 3}
+\section{Question 4}
+\section{Question 5}
+\end{document}
