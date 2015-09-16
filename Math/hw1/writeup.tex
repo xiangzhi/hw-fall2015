@@ -14,6 +14,7 @@
 implemented code:
 \lstinputlisting[style=Matlab-editor]{lduSolver.m}
 \section{Question 2}
+\subsection*{2.a}
 \begin{equation}
 A = 
 \begin{pmatrix}
@@ -24,25 +25,352 @@ A =
 \\
 \end{equation}
 Let $ L = I, A' = A$ \\
-apply operation $R_2 = R_2 - \frac{1}{2} R_1$ \\
-\begin{equation}
-
-A = 
-\begin{pmatrix}
-    4 & 7 & 0 \\
-    0 & -\frac{3}{2} & -6 \\
-    1 & 2 & 1 \\
-\end{pmatrix} 
-\end{equation}
-\begin{equation}
-L = 
-\begin{pmatrix}
+\begin{tabular}{|l|c|p{5cm}|}
+\hline
+\textbf{L} & \textbf{A\'} & \textbf{Operations}\\
+\hline
+$\begin{pmatrix}
     1 & 0 & 0 \\
     \frac{1}{2} & 1 & 0 \\
+    \frac{1}{4} & 0 & 1 \\
+\end{pmatrix}$
+&
+$\begin{pmatrix}
+    4 & 7 & 0 \\
+    0 & -\frac{3}{2} & -6 \\
+    0 & \frac{1}{4} & 1 \\
+\end{pmatrix}$
+&
+$R_2 = R_2 - \frac{1}{2} R_1 $ \newline
+$R_3 = R_3 - \frac{1}{4} R_1$ \\
+\hline
+$\begin{pmatrix}
+    1 & 0 & 0 \\
+    \frac{1}{2} & 1 & 0 \\
+    \frac{1}{4} & -\frac{1}{6} & 1 \\
+\end{pmatrix}$
+&
+$\begin{pmatrix}
+    4 & 7 & 0 \\
+    0 & -\frac{3}{2} & -6 \\
+    0 & 0 & 0 \\
+\end{pmatrix}$
+&
+$R_3 = R_3 + \frac{1}{6} R_1$ \\
+\hline
+\end{tabular} \\
+$D = 
+\begin{pmatrix}
+    4 & 0 & 0 \\
+    0 & -\frac{3}{2} & 0 \\
+    0 & 0 & 0 \\
+\end{pmatrix}
+$ \\
+$
+Q = 
+\begin{pmatrix}
+    1 & \frac{7}{4} & 0 \\
+    0 & 1 & 4 \\
     0 & 0 & 1 \\
-\end{pmatrix} 
-\end{equation}
+\end{pmatrix}
+$ \\
+SVD Decomposition\\
+$
+u =
+\begin{pmatrix}
+   -0.8478  &  0.4286 &  -0.3123 \\
+   -0.4908  & -0.8571 &   0.1562 \\
+   -0.2008  &  0.2857 &   0.9370 \\
+\end{pmatrix}$\\
+
+$s =
+\begin{pmatrix}
+    9.0554    &     0     &    0\\
+         0   & 5.7446    &     0\\
+         0     &    0  &  0.0000\\
+
+\end{pmatrix}$\\
+
+$v =
+\begin{pmatrix}
+   -0.5051   & 0.0497  &  0.8616 \\
+   -0.8081   & 0.3233  & -0.4924 \\
+    0.3030   & 0.9450  &  0.1231 \\
+\end{pmatrix}$
+
+\subsection*{2.b}
+Let $ L = I, A' = A$ \\
+\begin{tabular}{|l|c|p{5cm}|}
+\hline
+\textbf{L} & \textbf{A\'} & \textbf{Operations}\\
+\hline
+$\begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    \frac{1}{2} & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 \\
+\end{pmatrix}$
+&
+$\begin{pmatrix}
+    4 & 8 & 0 & 0 \\
+    0 & -4 & -2 & 0 \\
+    0 & 4 & -1 & 0 \\
+    0 & -2 & 0 & 2 \\
+    0 & 0 & 2 & -1 \\
+\end{pmatrix}$
+&
+$R_2 = R_2 - \frac{1}{2} R_1 $ \\
+\hline
+$\begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    \frac{1}{2} & 1 & 0 & 0 \\
+    0 & 1 & 1 & 0 \\
+    0 & -\frac{1}{2} & 0 & 1 \\
+    0 & 0 & 0 & 0 \\
+\end{pmatrix}$
+&
+$\begin{pmatrix}
+    4 & 8 & 0 & 0 \\
+    0 & -4 & -2 & 0 \\
+    0 & 0 & -3 & 0 \\
+    0 & 0 & 0 & 2 \\
+    0 & 0 & 2 & -1 \\
+\end{pmatrix}$
+&
+$R_3 = R_3 + R_2$ \newline
+$R_4 = R_3 - \frac{1}{2} R_2$\\
+\hline
+$\begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    \frac{1}{2} & 1 & 0 & 0 \\
+    0 & 1 & 1 & 0 \\
+    0 & -\frac{1}{2} & 0 & 1 \\
+    0 & 0 & \frac{2}{3} & \frac{1}{2} \\
+\end{pmatrix}$
+&
+$\begin{pmatrix}
+    4 & 8 & 0 & 0 \\
+    0 & -4 & -2 & 0 \\
+    0 & 0 & -3 & 0 \\
+    0 & 0 & 0 & 2 \\
+    0 & 0 & 0 & 0 \\
+\end{pmatrix}$
+&
+$R_5 = R_5 + \frac{2}{3}R_3$ \newline
+$R_5 = R_5 + \frac{1}{2}R_4$\\
+\hline
+\end{tabular} \\
+$D = 
+\begin{pmatrix}
+    4 & 0 & 0 & 0 \\
+    0 & -4 & 0 & 0 \\
+    0 & 0 & -3 & 0 \\
+    0 & 0 & 0 & 2 \\
+    0 & 0 & 0 & 0 \\
+\end{pmatrix}
+$ \\
+$
+Q = 
+\begin{pmatrix}
+    1 & 2 & 0 & 0 \\
+    0 & 1 & \frac{1}{2} & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 \\
+\end{pmatrix}$ \\
+SVD Decomposition \\
+$u = 
+\begin{pmatrix}
+   -0.9005  & -0.0155  &  0.3562 &  -0.1617 &  -0.1895 \\
+   -0.0891  & -0.7311  &  0.1847  &  0.5290 &   0.3789 \\
+   -0.3787  &  0.0340  & -0.7352 &  -0.1479  &  0.5413 \\
+    0.1942  & -0.3642  &  0.2836 &  -0.8023  &  0.3248 \\
+    0.0078  &  0.5757  &  0.4670  &  0.1686  & 0.6496 \\
+\end{pmatrix}$
+
+$s =
+\begin{pmatrix}
+    9.8844    &     0   &      0     &    0\\
+         0 &  3.3506   &      0     &    0\\
+         0    &     0  &  2.3134    &     0\\
+         0    &     0    &     0   & 1.9288\\
+         0    &     0     &    0    &     0\\
+\end{pmatrix}$
+
+$v =
+\begin{pmatrix}
+   -0.3824  & -0.4549  &  0.7755  &  0.2132 \\
+   -0.9214  &  0.2210  & -0.2847  & -0.1456 \\
+    0.0579  &  0.7699  &  0.5619  & -0.2970 \\
+    0.0385  & -0.3892  &  0.0434  & -0.9193 \\
+ \end{pmatrix}$
+
+\subsection*{2.c}
+Let $ L = I, A' = A$ \\
+\begin{tabular}{|l|c|p{5cm}|}
+\hline
+\textbf{L} & \textbf{A\'} & \textbf{Operations}\\
+\hline
+$\begin{pmatrix}
+    1 & 0 & 0 \\
+    \frac{3}{2} & 1 & 0 \\
+    \frac{1}{2} & 0 & 1 \\
+\end{pmatrix}$
+&
+$\begin{pmatrix}
+    2 & 2 & 5 \\
+    0 & -1 & -\frac{5}{2} \\
+    0 & 0 & \frac{5}{2} \\
+\end{pmatrix}$
+&
+$R_2 = R_2 - \frac{3}{2} R_1 $ \newline
+$R_3 = R_3 - \frac{1}{2} R_1$ \\
+\hline
+\end{tabular} \\
+$D = 
+\begin{pmatrix}
+    2 & 0 & 0 \\
+    0 & -1 & 0 \\
+    0 & 0 & \frac{5}{2} \\
+\end{pmatrix}
+$ \\
+$
+Q = 
+\begin{pmatrix}
+    1 & 1 & \frac{5}{2} \\
+    0 & 1 & 0 \\
+    0 & 0 & 1 \\
+\end{pmatrix}
+$ \\
+SVD Decomposition\\
+$
+u =
+\begin{pmatrix}
+   -0.5859  & -0.0444 &  -0.8091 \\
+   -0.6231  & -0.6138 &   0.4849 \\
+   -0.5182  &  0.7882 &   0.3319 \\
+\end{pmatrix}$\\
+
+$s =
+\begin{pmatrix}
+    9.7910   &      0    &     0\\
+         0   & 1.4162    &     0\\
+         0   &      0   & 0.3606\\
+
+\end{pmatrix}$\\
+
+$v =
+\begin{pmatrix}
+   -0.3635 &  -0.8063  &  0.4666\\
+   -0.2999 &  -0.3729 &  -0.8781\\
+   -0.8820  &  0.4591 &   0.1062\\
+\end{pmatrix}$
 \section{Question 3}
+\subsection*{3.a}
+the following row reduce shows that b is in the column space of A
+$
+\begin{pmatrix}
+   2 &  1  &  3 & 5\\
+   2 &  1 &  2 & -5\\
+   5  & 5 &  5 & 0\\
+\end{pmatrix} \\
+$
+$R_2 = R_2 - R_1$\\
+$R_2 = -R_2$\\
+$
+\begin{pmatrix}
+   2 &  1  &  3 & 5\\
+   0 &  0 &  1 & 10\\
+   5  & 5 &  5 & 0\\
+\end{pmatrix} \\
+$
+$R_1 = R_1 - 3R_2$\\
+$
+\begin{pmatrix}
+   2 &  1  &  0 & -25\\
+   0 &  0 &  1 & 10\\
+   5  & 5 &  5 & 0\\
+\end{pmatrix} \\
+$
+$R_3 = R_3 - 5R_1$\\
+$R_3 =R_3 - 5R_2$\\
+$R_3 = R_3/-5$
+$R_1 = R1 - 2R3$
+$
+\begin{pmatrix}
+   0 &  1  &  0 & -21\\
+   0 &  0 &  1 & 10\\
+   1  & 0 &  0 & -2\\
+\end{pmatrix} \\
+$
+the last matrix is a consistent system, this shows that $b$ is in column space of $A$. Therefore the $x = V\sigma$ is the only solution
+
+SVD Decomposition\\
+$u =
+\begin{pmatrix}
+   -0.3635 &   0.8063 &   0.4666 \\
+   -0.2999 &   0.3729 &  -0.8781\\
+   -0.8820 &  -0.4591 &   0.1062\\
+\end{pmatrix}$\\
+
+$s =
+\begin{pmatrix}
+    9.7910   &      0      &   0\\
+         0  &  1.4162      &   0\\
+         0   &      0  &  0.3606\\
+\end{pmatrix}$\\
+
+$v =
+\begin{pmatrix}
+   -0.5859 &   0.0444  & -0.8091 \\
+   -0.5182 &  -0.7882  &  0.3319 \\
+   -0.6231 &   0.6138  &  0.4849 \\
+\end{pmatrix}$
+\subsection*{3.b}
+SVD Decomposition\\
+$u =
+\begin{pmatrix}
+   -0.8478  &  0.4286  & -0.3123 \\
+   -0.4908  & -0.8571  &  0.1562 \\
+   -0.2008 &   0.2857  &  0.9370 \\
+\end{pmatrix}$\\
+
+$s =
+\begin{pmatrix}
+    9.0554     &    0    &     0\\
+         0   & 5.7446    &     0\\
+         0   &      0   & 0.0000\\
+\end{pmatrix}$\\
+
+$v =
+\begin{pmatrix}
+   -0.5051  &  0.0497  &  0.8616\\
+   -0.8081  &  0.3233  & -0.4924\\
+    0.3030  &  0.9450  &  0.1231\\
+\end{pmatrix}$
+\subsection*{3.c}
+SVD Decomposition\\
+$u =
+\begin{pmatrix}
+   -0.8478  &  0.4286  & -0.3123\\
+   -0.4908  & -0.8571  &  0.1562\\
+   -0.2008  &  0.2857  &  0.9370\\
+\end{pmatrix}$\\
+
+$s =
+\begin{pmatrix}
+    9.0554   &      0   &     0 \\
+         0   & 5.7446   &      0\\
+         0   &      0   & 0.0000\\
+\end{pmatrix}$\\
+
+$v =
+\begin{pmatrix}
+   -0.5051  &  0.0497  &  0.8616\\
+   -0.8081  &  0.3233  & -0.4924\\
+    0.3030  &  0.9450  &  0.1231\\
+\end{pmatrix}$
 \section{Question 4}
 \section{Question 5}
 \end{document}
