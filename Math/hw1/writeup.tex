@@ -328,6 +328,7 @@ $v =
    -0.6231 &   0.6138  &  0.4849 \\
 \end{pmatrix}$
 \subsection*{3.b}
+since the determinent of A is 0, that means there is no solution to the system.
 SVD Decomposition\\
 $u =
 \begin{pmatrix}
@@ -372,5 +373,31 @@ $v =
     0.3030  &  0.9450  &  0.1231\\
 \end{pmatrix}$
 \section{Question 4}
+\subsection{4.a}
+The matrix A describe an operation where any given vector will be projected onto the vector $u$ followed by a flattening to the lower dimension created by a vector that is perpendicular to $u$
+\subsection{4.c}
+The nullspace for A would be the original matrix u.
+\subsection{4.d}
+While the property of an idempotent matrix is AA = A. The following is a proof that any element in the $uu^T$ element will lead to itself.
+\begin{equation}
+Let\space uu^t = A =
+\begin{pmatrix}
+   {p_1}^2  &  p_1p_2  &  p_1p_3 & \dots & p_1p_n\\
+    p_1p_2  &  {p_2}^2  &  p_2p_3 & \dots & p_2p_n\\
+    \dots & \ddots & \ddots & \ddots & \dots \\
+    p_1p_n &  p_np_2  &  p_np_3 & \dots & p_np_n\\
+\end{pmatrix} \\
+\end{equation}
+The following is the multiplication for the first element.
+\begin{equation}
+AA(1,1) = {p_1}^2 + (p_1p_2)^2 + (p_1p_3)^2 + \dots + (p_1p_n)^2 = {p_1}^2 \sum_{i = 1}^{n}{{p_i}^2}
+\end{equation}
+since we know the length of the unit vector is $ = 1 = \sqrt{\sum_{i = 1}^{n}{{p_i}^2}} = 1 = \sum_{i = 1}^{n}{{p_i}^2}$. By subing it into the equations, we get
+$ = {p_1}^2$ which is the same as the original element. Because of the symmetric property of matrix. All of the elements are follow similar construct and can be prove using the same method as above. Therefore $uu^t$ is an idempotent matrix. By the definition of idempotent, we know that subtraction between two idempotent matrix also leads to an idempotent matrix. Therefore the operation $I - uu^t$ will also create an idempotent matrix. Therefore $A$ would be an idempotent matrix and $A^2 = AA = A$.
+
+
 \section{Question 5}
+This work was based on work titled
+Least-Squares Fitting of Two 3-D Point Sets by Arun.
+\lstinputlisting[style=Matlab-editor]{pointSolver.m}
 \end{document}
