@@ -1,4 +1,4 @@
-function [R] = findRotationMat(i,o)
+function [R,T] = pointSolver(i,o)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -24,6 +24,7 @@ disp(m);
 R = U * V';
 %R = U * mid * V';
 disp(R);
+T = cO - R*cI
 
 end
 
