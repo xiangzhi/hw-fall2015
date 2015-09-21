@@ -1,5 +1,5 @@
 function tester()
-    bank = createFilterBank();
-    img = imread('../dat/test.jpg');
-    extractFilterResponses(img, bank);
+    load('dictionary.mat','filterBank','dictionary');
+    img = imread('../dat/airport/sun_afcdhvryylnbwimp.jpg');
+    D = getVisualWords(img, filterBank,dictionary);
 end
