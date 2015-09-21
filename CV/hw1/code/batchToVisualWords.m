@@ -51,7 +51,7 @@ l = length(all_imagenames);
 
 wordRepresentation = cell(l,1);
 parfor i=1:l
-    fprintf('Converting to visual words %s\n', all_imagenames{i});
+    fprintf('Converting to visual words %s, cur index:%d\n', all_imagenames{i},i);
     image = imread([source, all_imagenames{i}]);
     wordRepresentation{i} = getVisualWords(image, filterBank, dictionary);
 end
