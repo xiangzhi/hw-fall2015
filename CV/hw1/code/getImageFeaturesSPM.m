@@ -1,6 +1,5 @@
 function [h] = getImageFeaturesSPM(layerNum, wordMap, dictionarySize)
-%UNTITLED2 Summary of this function goes here
-%   Detailed explanation goes here
+%Get the Image Feature vector through Spatial Pyramid Matching
 
     %create all the smaller maps
     smallerWordMap = {wordMap};

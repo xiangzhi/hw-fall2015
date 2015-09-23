@@ -1,7 +1,5 @@
 function output = splitImage(input, layer)
-%UNTITLED3 Summary of this function goes here
-%   Detailed explanation goes here
-    %get size
+%Helper function that plits the image into smaller images
     
     %base case 
     if layer <= 0

@@ -1,5 +1,4 @@
-
-
+%script to build vision.mat
 
 %Constants
 dictionarySize = 300;
@@ -9,7 +8,6 @@ load('../dat/traintest.mat','train_imagenames','train_labels','mapping');
 load('dictionary.mat','filterBank','dictionary');
 %disp(mapping);
 
-%TODO: make it constant
 train_features = zeros(dictionarySize * (4.^(L+1) - 1)/3, length(train_imagenames));
 disp(size(train_features));
 %train all features

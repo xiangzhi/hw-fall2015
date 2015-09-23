@@ -1,10 +1,5 @@
 function [wordMap] = getVisualWords(I, filterBank, dictionary)
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
-
-    %create an empty world map
-    %disp(size(I));
-    %wordMap = zeros(size(I,1),size(I,2));
+%Return a HxW matrix of the corresponding visual word for each pixel
 
     %crate a filter response here 
     imgResponse = extractFilterResponses(I, filterBank);

@@ -1,5 +1,5 @@
 function [output,hValues] = findCombineHistorgram(histMap,layer,maxLayer, dictionarySize)
-
+%combines each historgram at different level 
 
     weight = 1/4;
     if layer > 1

@@ -1,5 +1,4 @@
-
-
+%script to evaluate vision.mat
 
 load('../dat/traintest.mat','test_imagenames','test_labels');
 load('vision.mat','filterBank','dictionary','train_features','train_labels'); 
@@ -22,6 +21,6 @@ for i = 1:length(test_imagenames)
 end
 disp(cMat);
 imagesc(cMat);
-accuracy = trace(cMat) / sum(C(:));
+accuracy = trace(cMat) / sum(cMat(:));
 disp(accuracy);
 

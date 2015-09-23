@@ -21,7 +21,7 @@ end
 
 fprintf('Starting a pool of workers with %d cores\n', numCores);
 % matlabpool('local',numCores);
-parpool('local', numCores);
+%parpool('local', numCores);
 
 %load the files and texton dictionary
 load('../dat/traintest.mat','all_imagenames','mapping');
@@ -50,7 +50,8 @@ dictionary = dictionary;
 l = length(all_imagenames);
 
 wordRepresentation = cell(l,1);
-parfor i=1:l
+%parfor i=1:l
+for i=1:l %there's some issue with the parfor loop failing due to MATLAB has encountered a Linux operating system bug
     fprintf('Converting to visual words %s, cur index:%d\n', all_imagenames{i},i);
     image = imread([source, all_imagenames{i}]);
     wordRepresentation{i} = getVisualWords(image, filterBank, dictionary);
@@ -65,6 +66,6 @@ end
 
 %close the pool
 fprintf('Closing the pool\n');
-matlabpool close
+%matlabpool close
 
 end
