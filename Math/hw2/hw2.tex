@@ -80,6 +80,7 @@ $n$ & $E_n$ \\ \hline
 \end{tabular}\\
 The Error make sense, because we are trying to fit a polynomial on a non-polynomial function. As the interpolating polynomial will never become the function that we are trying to interpolating and it will only continue to over fitting the function causing massive error at the end of the functions
 \section{Q3}
+I received help from Reuben Aronson for this question\\
 Firstly, we assume the table contains the values $f(X_i),i = 0,...n$ with $n=\frac{1}{n}$ and $x_i = -\frac{\pi}{2} + i\times h$.  If $\bar{x} \in [x_{i-1}, x_i]$ then we are approximating the function with a polynomial of degree 2, $p_1(x)$. From the notes, we know the error must be:
 \begin{equation*}
 e_1(\bar{x}) = \frac{f'(xi)}{2!}(\bar{x} - x_{i-1})(\bar{x} - x_i)
@@ -142,6 +143,90 @@ First we observe the graph of the function $x - tan(x) = 0$ around the 200 point
 \end{figure}\\
 By visual inspection, we found that the root must be between $199.49$ and $199$. We tested this by inserting both values into the function and it gave us both $-682.7305$ and $197.1303$. Since $199.49$ won't be able to converge using Newton Method(implemented in the file titled \textit{newtonMethod.m}), we first use those two values in the bisection method to give an estimate root. The code for the function is attached to this paper under the title \textit{bisectionMethod.m}. The bisectionMethod returns $199.4861$ as the root. As we plugged in the value into newton method, it gave us the same value of $199.4861$. Therefore, the closet root to 200 is $199.4861$
 \section{Q5}
+I received help from Reuben Aronson for this question\\
+First, we look at the Newton Method:
+\begin{equation*}
+X_{n+1} = X_{n} - \frac{f(x_n)}{f'(x_n)}
+\end{equation*}
+Minus $\xi$ from both sides will give us
+\begin{equation*}
+\begin{aligned}
+\xi - X_{n+1} = \xi - (X_{n} - \frac{f(x_n)}{f'(x_n)})
+\end{aligned}
+\end{equation*}
+Because $E_n = \xi - x_n$
+\begin{equation*}
+E_{n+1} = E_n + \frac{f(x_n)}{f'(x_n)}
+\end{equation*}
+Let us set $\frac{f(x_n)}{f'(x_n)}$ to be $h(x)$
+\begin{equation*}
+E_{n+1} = E_n + h(x)
+\end{equation*}
+Inserting $E_n = \xi - x_n$ into $h(x)$, we get
+\begin{equation*}
+E_{n+1} = E_n + h(\xi - E_n)
+\end{equation*}
+$h(\xi - E_n)$ can be expressed as a Taylor series
+\begin{equation*}
+h(\xi - E_n) = h(\xi) - E_nh'(\xi) + \frac{{E_n}^2}{2}h''(\xi) + ...
+\end{equation*}
+First we solve $h(\xi)$.
+\begin{equation*}
+h(\xi) =\frac{f(\xi)}{f'(\xi)}
+\end{equation*}
+Because $f'(\xi) = 0$, the equation is indeterminate. Therefore, to solve this, we could apply the L'H\^opital's rule.
+\begin{equation*}
+h(\xi) = \lim_{x\to\xi}\frac{f'(\xi)}{f''(\xi)} = 0
+\end{equation*}
+Now we solve $h'(\xi)$. By the notes, we know the form would as following
+\begin{equation*}
+h'(\xi) = 1 - \frac{f(x)f''(x)}{[f'(x)]^2}
+\end{equation*}
+Again, the part of $\frac{f(x)f''(x)}{[f'(x)]^2}$ is indeterminate, we could apply the L'H\^opital's rule to it.
+\begin{equation*}
+\lim_{x\to\xi} \frac{f(x)f''(x)}{[f'(x)]^2} = \lim_{x\to\xi} \frac{f'(x)f''(x) + f(x)f'''(x)}{2f'(x)f''(x)}
+\end{equation*}
+Because the solution is again indeterminate, we apply L'H\^opital's rule again.
+\begin{equation*}
+\begin{aligned}
+\lim_{x\to\xi} \frac{f'(x)f''(x) + f(x)f'''(x)}{2f'(x)f''(x)} &= \lim_{x\to\xi} \frac{f'(x)f'''(x) + f''(x)f''(x) + f'(x)f'''(x) + f(x)f''''(x)}{2f''(x)f''(x)+2f'(x)f'''(x)}\\
+&= \frac{f''(x)f''(x)}{2f''(x)f''(x)}\\
+&= \frac{1}{2}
+\end{aligned}
+\end{equation*} 
+Plugging $\frac{1}{2}$ back into the original equation, we get
+\begin{equation*}
+h'(\xi) = 1 - \frac{1}{2} = \frac{1}{2} 
+\end{equation*}
+Now we plugging the value of $h'(x)$ and $h(x)$ back into $E_{n+1} = E_n + h(\xi - E_n )$
+\begin{equation*}
+\begin{aligned}
+E_{n+1} &= E_n + h(\xi - E_n )\\
+&= E_n + h(\xi) - E_nh'(\xi) + ...
+&= E_n + 0 - \frac{E_n}{2} + O({E_n}^2)
+&= \frac{1}{2}E_n + O({E_n}^2)
+\end{aligned}
+\end{equation*}
+This establishes the linear convergence of Newton's Method when $f(\xi) = 0$,$f'(\xi) = 0$.
+\begin{equation*}
+|E_{n+1}| \sim C|E_n|^1,\;where\;C=\frac{1}{2} + O({E_n}^2)
+\end{equation*}
+This proves that the method now converges linearly.\\
+Now we change the newton's method function to $x_{n+1} = x_{n-1} - 2\frac{f(x_n)}{f'{x_n}}$. The only change would be that now $E_{n+1} = E_n + 2h(\xi - E_n)$. By expanding it:
+\begin{equation*}
+\begin{aligned}
+E_{n+1} &= E_n + 2h(\xi - E_n )\\
+&= E_n + 2(h(\xi) - E_nh'(\xi) + \frac{{E_n}^2}{2}h''(\xi) + O({E_n}^3) \\
+&= E_n + 2(0) - 2(\frac{E_n}{2}) + {E_n}^2h''(\xi) + 2(O({E_n}^3)) \\
+& = {E_n}^2h''(\xi) + 2(O({E_n}^3)) \\
+\end{aligned}
+\end{equation*}
+Now we only need to prove that $h''(\xi) \neq 0$. This could be done through calculation on matlab or wolframalpha. If done, it will prove that $h''(\xi) \neq 0$.
+Therefore,
+\begin{equation*}
+|E_{n+1}| \sim C|E_n|^2,\;where\;C= O({E_n}^3)
+\end{equation*}
+This proves that the method now converges quadratically.
 \section{Q6}
 \subsection{6(a)}
 The Muller Method was implemented based on the notes and algorithm given on the website: http://www.physics.arizona.edu/~restrepo/475A/Notes/sourcea-/node25.html . The implementation of the algorithm can be found in the file titled \textit{mullerMethod.m} attached to the homework.
