@@ -145,16 +145,20 @@ By visual inspection, we found that the root must be between $199.49$ and $199$.
 \section{Q5}
 \section{Q6}
 \subsection{6(a)}
-The Muller Method was implemented based on the notes and algorithm given on the website: http://www.physics.arizona.edu/~restrepo/475A/Notes/sourcea-/node25.html . The implementation of the algorithm can be found in the file titled \textit{mullerMethod.m} attached to the homework.
+The Muller Method was implemented based on the notes and algorithm given in the book Numerical Recipes in C on page 371. The implementation of the algorithm can be found in the file titled \textit{mullerMethod2.m} attached to the homework.
 \subsection{6(b)}
-first route:
-x0 = 4;
-x1 = 4.35;
-x2 = 4.5;
-Root at: 4.4934
-second root:
+The initial guesses of each roots are based on the plot on the graph $x -tan(x)$. We observed where the zeros is and pick three values of x such that the root will be between them without going over the asymptotes. Following are the roots and initial guesses.\\
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+$x_0$ & $x_1$ & $x_2$ & roots \\ \hline
+$4$ & $4.35$ & $4.5$ & $4.4934$ \\ \hline
+$6$ & $6.5$ & $7.8$ & $7.7252$ \\ \hline
+$10$ & $10.5$ & $10.95$ & $10.9041$ \\ \hline
+\end{tabular}
 \subsection{6(c)}
 We wrote a script called \textit{p6c.m} that runs the algorithm to find the correct k and real roots. First, we visually inspected the graph of the Bessel function at K = 100. This allow us to determine the ranges for the possible roots. Then, we set the initial k to be 3 and loop through the Muller function and slowly increasing k until the root become stable(they did not change since the last iteration). We found the roots to be stable at $k = 31$. The following is the roots found by the algorithm\\
+
 \begin{tabular}{|c|c|c|c|}
 \hline
 $x_0$ & $x_1$ & $x_2$ & roots \\ \hline
@@ -162,7 +166,6 @@ $3$ & $4$ & $5$ & $3.3817$ \\ \hline
 $5$ & $6$ & $7$ & $7.0156$ \\ \hline
 $9$ & $10$ & $11$ & $10.1735$ \\ \hline
 $12$ & $13$ & $14$ & $13.3237$ \\ \hline
-
 \end{tabular}
 
 \section{Q7}
@@ -283,6 +286,7 @@ y \\
 1 
 \end{pmatrix}
 \end{equation*}
+The three values $v_0, v_1$ and $v_2$ will tells us whether the point is in the triangle. If the point lies in the triangle or on the edge for all the values, they will be $0 \geq v_i \leq 1$ for all $i$.
 \subsection*{9(b)}
 The algorithm is implemented in the function in \textit{interpolatePath.m}.\\
 The Algorithm that is used to find the 3 paths are as following:
@@ -319,7 +323,7 @@ The following is the plot of the interpolate path. The given paths are in yellow
 \includegraphics[width=6in]{p9.jpg}
 \end{figure}\\
 \subsection*{9(d)}
-If you observe the graph, you will notice that certain interpolate path goes further out that the given paths. This would be a problem if there are more obstacles that are introduced near the path. One possible additiona to the algorithm is to recalculate the weights and interpolation path after a certain interval. Let say t is 100, we could recalculate all these values in 20 intervals. 
+If you observe the graph, you will notice that certain interpolate path goes further out that the given paths. This would be a problem if there are more obstacles that are introduced near the path. One possible addition to the algorithm is to recalculate the weights and interpolation path after a certain interval. Let say t is 100, we could recalculate all these values in 20 intervals. 
 
 
 
