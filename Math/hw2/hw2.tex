@@ -3,6 +3,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{float}
+\usepackage{hyperref}
 
 
 \begin{document}
@@ -262,6 +263,63 @@ The result of the roots marked on the graph
 \caption{graphing of the two functions}
 \end{figure}
 \section{Q9}
+\subsection*{9(a)}
+The linear equation would be based on \hyperref[https://en.wikipedia.org/wiki/Barycentric_coordinate_system]{Barycentric coordinate system} which says that each point in a triangle could be written by three Barycentric coordinates. The three barycentric coordinates will be set as $v$ in the linear equation.
+\begin{equation*}
+\begin{pmatrix}
+x^{(i)} & x^{(j)} & x^{(k)} \\
+y^{(i)} & y^{(j)} & y^{(k)} \\
+1 & 1 & 1 
+\end{pmatrix}
+\begin{pmatrix}
+v_0 \\
+v_1 \\
+v_2 
+\end{pmatrix}
+=
+\begin{pmatrix}
+x \\
+y \\
+1 
+\end{pmatrix}
+\end{equation*}
+\subsection*{9(b)}
+The algorithm is implemented in the function in \textit{interpolatePath.m}.\\
+The Algorithm that is used to find the 3 paths are as following:
+\begin{enumerate}
+	\item find the path with the closet start point to the start point given. That path will be the first path($p_1$).
+	\item calculate the distance of all points to the start point of $p_1$.
+	\item if $p_1$ has $x > y$, pick two paths with the closet start point where their $x$ is also $> y$. Those two path become $p_2$ and $p_3$. 
+	\item if $p_1$ has $x <= y$, pick two paths with the closet start point where their $x$ is also $<= y$. Those two path become $p_2$ and $p_3$. 
+\end{enumerate}
+To get the alpha, I used the linear equation in $9(a)$ and plugged in the values from $p_1$,$p_2$,$p_3$ and the starting point. Following is the equation used.
+\begin{equation*}
+\begin{pmatrix}
+x^{p_1} & x^{p_2} & x^{p_3} \\
+y^{p_1} & y^{p_2} & y^{p_3} \\
+1 & 1 & 1 
+\end{pmatrix}
+\begin{pmatrix}
+\alpha_1 \\
+\alpha_2 \\
+\alpha_3 \\ 
+\end{pmatrix}
+=
+\begin{pmatrix}
+startPoint_x \\
+startPoint_y \\
+1 
+\end{pmatrix}
+\end{equation*}
+Currently, the time scale is 100. There is no particular reason for picking this time scale besides is a multiple of the time scale given(50).
+\subsection*{9(c)}
+The following is the plot of the interpolate path. The given paths are in yellow. The path with the starting point$(0.8, 1.8)$ is the path colored red. The path with the starting point $(2.2, 1.0)$ is the path colored greeen. the path with the starting point $(2.7, 1.4)$ is the path colored blue.
+\begin{figure}[h]
+\centering
+\includegraphics[width=6in]{p9.jpg}
+\end{figure}\\
+\subsection*{9(d)}
+If you observe the graph, you will notice that certain interpolate path goes further out that the given paths. This would be a problem if there are more obstacles that are introduced near the path. One possible additiona to the algorithm is to recalculate the weights and interpolation path after a certain interval. Let say t is 100, we could recalculate all these values in 20 intervals. 
 
 
 
