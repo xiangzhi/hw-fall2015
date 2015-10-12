@@ -11,20 +11,16 @@ for k=1:length(i)
     cI = cI + (1/length(i)) * i{k};
     cO = cO + (1/length(o)) * o{k};
 end
-A = [];
-B = [];
+p = [];
+q = [];
 for k=1:length(i)
-    A = [A i{k} - cI];
-    B = [B o{k} - cO];
+    p = [p i{k} - cI];
+    q = [q o{k} - cO];
 end
-m = B * A';
-disp(m);
-[U,S,V] = svd(m);
-%mid = diag([1 1 det(U*V')]);
+%create the H matrix
+H = q * p';
+[U,S,V] = svd(H);
 R = U * V';
-%R = U * mid * V';
-disp(R);
 T = cO - R*cI
-
 end
 
