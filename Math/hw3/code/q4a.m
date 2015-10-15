@@ -1,6 +1,6 @@
-%q3
+%q4a.m
 
-id = fopen('data/cluttered_table.txt');
+id = fopen('data/clear_table.txt');
 data = textscan(id,'%f %f %f');
 points = ones(size(data{1,1},1),3);
 points(:,1) = data{1,1};
@@ -12,20 +12,21 @@ hold on
 
 %mesh(points(:,1),points(:,2),points(:,3));
 
-A = ones(size(points,1),4);
-A(:,1:3) = points;
-[u,s,v] = svd(A'*A);
-disp(s);
-sol = v(:,end);
-disp(sol);
+[a,b,c,d] = planeSolver(points);
 
-%from stackoverflow
-[x y] = meshgrid(-1.5:.2:1.5,0:.1:1);
-z = (-1 * sol(1)*x - sol(2)*y - sol(4))/sol(3);
+
+%find tha max and min of each fits 
+xMax = max(points(:,1));
+xMin = min(points(:,1));
+yMax = max(points(:,2));
+yMin = min(points(:,2));
+
+[x y] = meshgrid(xMin:(xMax-xMin)/100:xMax,yMin:(yMax-yMin)/100:yMax);
+z = (-1 * a*x - b*y - d)/c;
 mesh(x,y,z);
 
 %go through all points and calculate the distance to the points
-dis = abs(sol(1)*points(:,1) + sol(2)*points(:,2) + sol(3)*points(:,3) + sol(4))/(sqrt(sol(1).^2 + sol(2).^2 + sol(3).^2));
+dis = abs(a*points(:,1) + b*points(:,2) + c*points(:,3) + d)/(sqrt(a.^2 + b.^2 + c.^2));
 %dis = sqrt((((-1 * sol(1)*points(:,1) - sol(2)*points(:,2) - sol(4))/sol(3)) - points(:,3)).^2);
 avgDis = sum(dis)/size(points,1);
 scatter3(points(:,1),points(:,2),points(:,3));

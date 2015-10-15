@@ -21,8 +21,9 @@ disp(cosh(2)-cosh(-1));
 %fp2 = (4-1/3)*cosh(2) - (4-1/3)*cosh(-2) - 2 * (2 * sinh(2) + 2 * sinh(-2) - (cosh(2) - cosh(-2)))
 
 syms x1;
-f = symfun(1.60023 *x1, [x1]);
-plot(x,f(x));
+%f = symfun(1.60023 *x1, [x1]);
+f = symfun(1.4616 *x1, [x1]);
+plot(x,cosh(x));
 
 % syms x1;
 % f = symfun(1.6 *x1, [x1]);
