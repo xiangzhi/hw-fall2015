@@ -17,15 +17,36 @@ end
 clf();
 viscircles([5,5],1.5)
 hold on
-
+axis([0,12,0,12])
 for i = 1:1:49
     plot(paths{i,1}(:,1),paths{i,1}(:,2),'y');
 end
 
-newPath = interpolatePath([0.8 1.8],paths);
+
+
+[newPath picked] = interpolatePath([0.8 1.8],paths);
+%[newPath picked] = interpolatePath([2.2 1.0],paths);
+%[newPath picked] = interpolatePath([2.7 1.4],paths);
+
+plot(paths{picked(1),1}(:,1), paths{picked(1),1}(:,2),'b');
+plot(paths{picked(2),1}(:,1), paths{picked(2),1}(:,2),'b');
+plot(paths{picked(3),1}(:,1), paths{picked(3),1}(:,2),'b');
+
+
+%line([paths{picked(1),1}(1,1),paths{picked(2),1}(1,1)],[paths{picked(1),1}(1,2),paths{picked(2),1}(1,2)]);
+%line([paths{picked(1),1}(1,1),paths{picked(3),1}(1,1)],[paths{picked(1),1}(1,2),paths{picked(3),1}(1,2)]);
+%line([paths{picked(2),1}(1,1),paths{picked(3),1}(1,1)],[paths{picked(2),1}(1,2),paths{picked(3),1}(1,2)]);
+
+
+
 plot(newPath(:,1),newPath(:,2),'r');
-newPath = interpolatePath([2.2 1.0],paths);
-plot(newPath(:,1),newPath(:,2),'g');
-newPath = interpolatePath([2.7 1.4],paths);
-plot(newPath(:,1),newPath(:,2),'b');
+% newPath = interpolatePath([2.2 1.0],paths);
+% plot(newPath(:,1),newPath(:,2),'g');
+% newPath = interpolatePath([2.7 1.4],paths);
+% plot(newPath(:,1),newPath(:,2),'b');
+
+
+
 hold off
+
+

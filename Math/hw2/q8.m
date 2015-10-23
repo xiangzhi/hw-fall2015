@@ -16,7 +16,9 @@ hold on
 eq2 = x.^2 + y.^2 + 2*x*y + x -y;
 ezplot(eq2,[-1,1]);
 
-%ezplot(eq1,eq2,[-2,2])syms x y
-g =  0.0841 + 0.0000i
-disp(sqrt((1 - 2 * g.^2)/2));
+plot(-0.7021,-0.0840,'*');
+plot(0.0841,0.7020,'*');
 
+%ezplot(eq1,eq2,[-2,2])syms x y
+g =  -0.7021
+disp(sqrt((1 - 2 * g.^2)/2));
