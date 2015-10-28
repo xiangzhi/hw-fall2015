@@ -1,47 +1,36 @@
+%script to test the performance of the car sequence
 
 %load the sequence
 load('../data/carseq.mat');
-%oriRect = [60,117,146,152];
-%LucasKanade(frames(:, :, 1),frames(:, :, 5),oriRect);
-
-
-oriRect = [60,117,146,152];
-% imshow(frames(:, :, 1));
-% rectangle('Position',[oriRect(1), oriRect(2), oriRect(3) - oriRect(1),oriRect(4)-oriRect(2)],...
-%          'LineWidth',2)
-
-rect = oriRect;    
-
-saveMat = zeros(size(frames,3),4);
-
+%set the initial rectangle
+rect = [60,117,146,152];    
+%create a matrix to save the values as it loops through
+rects = zeros(size(frames,3),4);
+%loop through all the frames
 for i=1:1:size(frames,3) - 1
     
     %show the image first, I guess
     hold on
     imshow(frames(:, :, i));
+    title(strcat('frame ',num2str(i)));
     rectangle('Position',[rect(1), rect(2), rect(3) - rect(1),rect(4)-rect(2)]);
     hold off
     
     [u,v] = LucasKanade(frames(:,:,i),frames(:,:,i+1),rect);
-    %disp([u v]);
+    %update the rectangle by u and v
     rect(1) = rect(1) + u;
     rect(3) = rect(3) + u;
     rect(2) = rect(2) + v;
     rect(4) = rect(4) + v;
-    
-    if(i == 2 || i == 101 || i == 201 || i == 301 || i == 401)
-        saveas(gcf,strcat('pic',i ,'.png'));
+    %at the required frames, stop and save the image
+    if(i == 1 || i == 100 || i == 200 || i == 300 || i == 400)
+        saveas(gcf,strcat('../figures/fig-1-3-',num2str(i),'.png'));
     end
-    
-    saveMat(i,:) = rect;
+    %save the rectangle in the matrix
+    rects(i,:) = rect;
     disp(i);
-    
-%   rectangle = [rect(1), rect(2), rect(3) - rect(1),rect(4)-rect(2)];
-%     img = step(shapeInserter, frames(:, :, i), rectangle);
-%     imshow(img);
-
 end
 
-save('carseqrects.mat','saveMat');
+save('carseqrects.mat','rects');
 
 disp('done');

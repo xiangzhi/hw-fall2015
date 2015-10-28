@@ -1,10 +1,10 @@
 
 %load the sequence
-load('../data/sylvseq.mat');
+load('../data/sylvextseq.mat');
 %load the bases
-load('../data/sylvbases.mat');
+load('../data/sylvextbases.mat');
 %set the original rectangle
-rect = [102, 62, 156, 108];
+rect = [122, 59, 169, 104];
 %create rectangle for the first algorithm
 oriRect = rect;
 %initialize matrix to the save the rects
@@ -34,10 +34,10 @@ for i=1:1:size(frames,3) - 1
         'EdgeColor',[1 0 0]);
     hold off
     
-    if(i == 1 || i == 200 || i == 300 || i == 350 || i== 400)
+    if(i == 1 || i == 300 || i == 600 || i == 900 || i == 1100 || i == 1200)
         saveas(gcf,strcat('../figures/fig-2-1-',num2str(i),'.png'));
     end
     
     disp(i);
 end
-save('sylvseqrects.mat','rects');
+save('sylvseqextrects.mat','rects');
