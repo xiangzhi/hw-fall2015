@@ -73,3 +73,30 @@ f^T\alpha &= \sum_{i=1}^l(\alpha_i)\\
 f^T &= [1,1,.....1]
 \end{aligned}
 \end{equation*}
+
+\subsection*{7(e)(iii)}
+Following is the table showing the accuracy of my algorithm on a 10-fold cross validation run.\\
+\begin{centering}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+k & correct P & wrongly label & P detection \% & correct N & wrongly label & N detection \% & total accuracy \\ \hline
+1 & 49 & 0 & 0.326667 & 104 & 101 & 1 & 0.602362 \\ \hline 
+2 & 70 & 0 & 0.526316 & 120 & 63 & 1 &0.750988 \\ \hline 
+3 & 68 & 0 & 0.539683 & 128 & 58 & 1 &0.771654 \\ \hline 
+4 & 63 & 0 & 0.463235 & 117 & 73 & 1 &0.711462 \\ \hline 
+5 & 52 & 0 & 0.382353 & 118 & 84 & 1 &0.669291 \\ \hline 
+6 & 75 & 0 & 0.539568 & 114 & 64 & 1 &0.747036 \\ \hline 
+7 & 70 & 0 & 0.514706 & 117 & 66 & 1 &0.739130 \\ \hline 
+8 & 75 & 0 & 0.547445 & 116 & 62 & 1 &0.754941 \\ \hline 
+9 & 65 & 0 & 0.481481 & 118 & 70 & 1 &0.723320 \\ \hline 
+10 & 78 & 0 & 0.609375 & 126 & 50 & 1 &0.803150 \\ \hline 
+\end{tabular}
+\end{centering}
+One interesting observation is that the SVM overclassifies the negative(the hand writing zero). It has 100\% accuracy on classifying that hand writing but also falsely detect multiple ones in the process.
+\subsection*{7(e)(iv)}
+\begin{figure}[H]
+\centering
+\includegraphics[width=6.5in]{figures/q7-6.jpg}
+\caption{plot of weight function}
+\end{figure}
+The weight functions shows what the algorithm learns. It assigns positive number when it detects features in the middle and assigns negative values to features around in the circle. One possibility that zero has a higher accuracy than one is that most of the zero's feature space does not overlap with ones and it also has a larger area. Where as one, it relies on the middle and also the edge which it shares with zero(you can see the slight discoloration on those are compare to the side of the zero). The selection of the feature space is really important and the larger size of zero in the feature space has skewed the result towards it.
