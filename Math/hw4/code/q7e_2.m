@@ -22,13 +22,15 @@ for i = 1:1:K
     err = 0;
     testData = data(test,:);
     testLabel = labels(test,:);
+    
+    %do multiplication to figure out what is the scalar value
+    %in the end
     p = w * testData';
     p = p - b;
-    %now check for those more than 0
+    
+    %look at the states
     x = sum(testLabel((p > 0)) == 1) + sum(testLabel((p < 0)) == -1);
     correctP = sum(testLabel((p > 0)) == 1);
-    c = p' < 0;
-    test = testLabel(p' > 0);
     wrongP = sum(testLabel(p > 0) ~= 1);
     totalP = sum(testLabel == 1);
     correctN = sum(testLabel((p < 0)) == -1);
@@ -36,15 +38,5 @@ for i = 1:1:K
     totalN = sum(testLabel == -1);
     fprintf('%d & %d & %d & %f & %d & %d & %f %f \\\\ \\hline \n', ...
         i,correctP,wrongP,correctP/totalP,correctN,wrongN,correctN/totalN,x/size(testLabel,1));
-    correct = x/size(testLabel,1);
-    %correct = sum(testLabel((p > 0)))/size(testLabel,1);
-    %disp('correct:');
-    %disp(correct);
-    
 end
 displayImage(save);
-
-
-
-
-%throw into SVM

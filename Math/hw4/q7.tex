@@ -22,7 +22,7 @@ Following is the steps to minimize the Lagrangian which is ther primal form of t
 \begin{equation}\label{ori-l}
 L ([w\;0\;\xi]^T, \alpha, \beta) = \frac{1}{2}||w||^2 + C \sum_{i=1}^l \xi_i + \sum_{i=1}^l \alpha_i(- y_i(w^Tx_i + b) + 1 - \xi_i) - \sum_{i=1}^l \beta_i \xi_i
 \end{equation}
-First we, find the partial of $w$,$b$ and $\xi_i$. Following are the partials follow by setting them to 0.\\
+First, we find the partial of $w$,$b$ and $\xi_i$. Following are the partials follow by setting them to 0.\\
 Finding partial of $w$
 \begin{equation}\label{wpartial}
 \begin{aligned}
@@ -74,7 +74,43 @@ f^T &= [1,1,.....1]
 \end{aligned}
 \end{equation*}
 
+\subsection*{7(e)(i)}
+We implemented the SVM in the matlab file \textbf{svmSolver.m} and the solver can be tested and visualized by the files \textbf{q7e\_1.m} for the first part and \textbf{q7e\_2.m} for the second part of the question.
+Following are graphs of using the SVM solver on the test data and the decision boundary and margins for C=1,0.1,0.01,0.001
+\begin{figure}[H]
+\centering
+\includegraphics[width=6.5in]{figures/q7-5-3.jpg}
+\caption{Plot of decision boundary and margins with C=1}
+\end{figure}
+The margins are really small and cannot be observed in the graph.
+\begin{figure}[H]
+\centering
+\includegraphics[width=6.5in]{figures/q7-5-2.jpg}
+\caption{Plot of decision boundary and margins with C=0.1}
+\end{figure}
+The margins are really small and cannot be observed in the graph.
+\begin{figure}[H]
+\centering
+\includegraphics[width=6.5in]{figures/q7-5-1.jpg}
+\caption{Plot of decision boundary and margins with C=0.01}
+\end{figure}
+The margins are small but you can still see the slight increase in width compare to the previous two figures.
+\begin{figure}[H]
+\centering
+\includegraphics[width=6.5in]{figures/q7-5-4.jpg}
+\caption{Plot of decision boundary and margins with C=0.001}
+\end{figure}
+You can clearly see decision boundary's and it's margin in the previous figure.
+
+\subsection*{7(e)(ii)}
+As observed in the previous few figures, we see that the decision margins increase as C decreases. Therefore, as C approaches $0$, the sampling errors are negated.
+\begin{equation}
+\lim{C \to 0} min \frac{1}{2}||w||^2 + C\sum_{i=1}^l\xi_i = min \frac{1}{2}||w||^2
+\end{equation}
+Therefore, SVM will now ignore the sampling error and might choose points that have significant error as support vectors and give the wrong result 
+
 \subsection*{7(e)(iii)}
+This part of the question is implemented in the script,\textbf{q7e\_2.m}.
 Following is the table showing the accuracy of my algorithm on a 10-fold cross validation run.\\
 \begin{centering}
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -92,11 +128,11 @@ k & correct P & wrongly label & P detection \% & correct N & wrongly label & N d
 10 & 78 & 0 & 0.609375 & 126 & 50 & 1 &0.803150 \\ \hline 
 \end{tabular}
 \end{centering}
-One interesting observation is that the SVM overclassifies the negative(the hand writing zero). It has 100\% accuracy on classifying that hand writing but also falsely detect multiple ones in the process.
+One interesting observation is that the SVM over classifies the negative(the hand writing of zero). It has 100\% accuracy on classifying that type of character but it also falsely classified large number(range from $60\% - 30\%$) of ones as zeros
 \subsection*{7(e)(iv)}
 \begin{figure}[H]
 \centering
 \includegraphics[width=6.5in]{figures/q7-6.jpg}
 \caption{plot of weight function}
 \end{figure}
-The weight functions shows what the algorithm learns. It assigns positive number when it detects features in the middle and assigns negative values to features around in the circle. One possibility that zero has a higher accuracy than one is that most of the zero's feature space does not overlap with ones and it also has a larger area. Where as one, it relies on the middle and also the edge which it shares with zero(you can see the slight discoloration on those are compare to the side of the zero). The selection of the feature space is really important and the larger size of zero in the feature space has skewed the result towards it.
+The weight functions shows us what the algorithm learns. It assigns positive number when it detects features in the middle and assigns negative values to features around in the circle. One possibility that hand writing of zeros has a higher accuracy than hand writing of ones is that most of the zeros' feature space does not overlap with ones and it also has a larger area to be compared with. Where as ones, it relies on the middle and also the edge which it shares with zero(you can see the slight discoloration on those are compare to the side of the zero). The selection of the feature space is really important and the larger size of zero in the feature space has skewed the result towards it.

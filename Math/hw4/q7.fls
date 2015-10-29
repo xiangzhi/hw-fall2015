@@ -1,7 +1,0 @@
-PWD /home/zhi/Academic/hw-Fall2015/Math/hw4
-INPUT /etc/texmf/web2c/texmf.cnf
-INPUT /usr/share/texmf/web2c/texmf.cnf
-INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
-INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/zhi/Academic/hw-Fall2015/Math/hw4/q7.tex
-OUTPUT /home/zhi/Academic/hw-Fall2015/Math/hw4/q7.log

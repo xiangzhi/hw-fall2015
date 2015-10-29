@@ -1,0 +1,78 @@
+I discussed with Rick Goldstein on parts of the problem
+\subsection*{4(a)}
+From the algorithm in the notes on page 17, we know that:
+\begin{equation} \label{4-e1}
+d_k = -g_k + B_{k-1}d_{k-1}
+\end{equation}
+As we want to show $d_k^TQd_k = -d_k^TQg_k$, we will derive the right-hand side from the left using equation \ref{4-e1}.
+\begin{equation}\label{4-e2}
+\begin{aligned}
+d_k^TQd_k &= d_k^TQ(-g_k + B_{k-1}d_{k-1}) &\mbox{ ,inserted \ref{4-e1}}\\
+&= -d_k^TQg_k +  B_{k-1}d_k^TQd_{k-1} &\mbox{ , $d_k$ and $d_{k-1}$ are Q-orthogonal, $d_k^TQd_{k-1}=0$} \\
+&= -d_k^TQg_k
+\end{aligned}
+\end{equation}
+This shows that $d_k^TQd_k = -d_k^TQg_k$. Now we will show that we can obtain $x_{k+1}$ with only $Q$ to find $g_k$ and $Qg_k$.
+First is obtaining $d_k$.
+\begin{equation}\label{4-e21}
+\begin{aligned}
+d_k &= - g_k + B_{k-1}d_{k-1}&\\
+& = - g_k + \frac{g_k^TQd_{k-1}}{d_{k-1}^TQd_{k-1}} d_{k-1}&\\
+& = - g_k - \frac{d_{k-1}^TQg_k}{d_{k-1}^TQg_{k-1}} d_{k-1}& \mbox{, rearrange and apply \ref{4-e2}}
+\end{aligned}
+\end{equation}
+Obtaining $d_k$ now only depends on $d_{k-1}$, which is obtain in the previous iterative or given if it's the first, $Qg_{k-1}$ and $g_k$, which is what we want.\\
+Now we will see how to obtain $\alpha_k$
+\begin{equation}\label{4-e22}
+\begin{aligned}
+\alpha_k &= - \frac{g_k^Td_k}{d_k^TQd_k}&\\
+\alpha_k &= \frac{g_k^Td_k}{d_k^TQg_k}& \mbox{, apply \ref{4-e2}}\\
+\end{aligned}
+\end{equation}
+Again, obtaining $\alpha_k$ would only need variables that we already calculated. To get $x_k+1$ would just be $x_{k+1} = x_k + \alpha_k d_k$. Which both have been shown to be able to be derived using only $Q$ to evaluate $g_k$ and $Qg_k$.
+\subsection*{4(b)}
+We will derive the desire solution using the fact that $y_k = x_k - g_k$ and $p_k = \Delta f(y_k)$.
+\begin{equation}\label{4-e3}
+\begin{aligned}
+p_k &= \Delta f(y_k) &\\
+&= Q(y_k) + b & \mbox{wrote the gradient in terms of equation}\\
+&= Q(x_k - g_k) + b &\\
+&= Qx_k - Qg_k + b &\\
+&= Qx_k + b - Qg_k&\\
+&= g_k - Qg_k & \mbox{ , $Qx_k + b$ is the gradient at the point $x_k$, therefore can be written as $g_k$}\\
+Qg_k &= g_k - p_k &\\ 
+\end{aligned}
+\end{equation}
+
+\subsection*{4(c)}
+First, we will modified some terms in the original algorithm in the notes on page 17 using the equations \ref{4-e2} and \ref{4-e3}.\\
+For equation 2(a) in the notes which has already been modified in \ref{4-e22}
+\begin{equation*}
+\begin{aligned}
+\alpha_k &= \frac{g_k^Td_k}{d_k^TQg_k}\\
+\alpha_k &= \frac{g_k^Td_k}{d_k^T(g_k - p_k)} \mbox{ ,applied \ref{4-e3}}
+\end{aligned}
+\end{equation*}
+For equation 2(c) in the notes.
+\begin{equation}
+\begin{aligned}
+B_k &= \frac{g_{k+1}^TQd_k}{d_k^TQg_k}&\\
+&= \frac{d_{k}^TQg_{k+1}}{d_{k}^TQg_{k}}&\\
+&= \frac{d_k(g_{k+1} - p_{k+1})}{d_k^T(g_k - p_k)}& \mbox{ ,applied \ref{4-e3}}
+\end{aligned}
+\end{equation}
+
+The final general algorithm will be similar to the one in the notes on page 17.\\
+\begin{algorithm}[H]
+  \KwResult{Minimum of the equation}
+  Let $d_0$ = $-g_0$\;
+  \For{$k = 0,...,n-1$}{
+  	$\alpha_k = \frac{g_k^Td_k}{d_k^T(g_k - p_k)}$\;
+  	$x_{k+1} = x_k + \alpha_k d_k$\;
+  	$B_k = \frac{d_k(g_{k+1} - p_{k+1})}{d_k^T(g_k - p_k)}$\;
+  	$d_{k+1} = - g_{k+1} + B_k d_k$
+  }
+  Return $X_n$\;
+  \caption{Conjugate Gradient Method}
+\end{algorithm}
+Note, the gradient of each point can be obtain by sampling the surrounding points

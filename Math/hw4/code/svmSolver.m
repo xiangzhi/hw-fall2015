@@ -5,7 +5,7 @@ H = (labels * labels').* (data * data');
 H = H.* -1;
 %H = -H*H';
 f = ones(size(labels,1),1);
-f = f*-1;
+%f = f*-1;
 
 xi = 0.00001;
 
