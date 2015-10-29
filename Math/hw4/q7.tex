@@ -1,0 +1,75 @@
+\subsection*{7(a)}
+We can first rearrange the constraints 2 and 3 into the following form by moving elements on the right handside to the left and multiplying constraints 2 by $-1$.
+\begin{equation*}
+\begin{aligned}
+- w^Tx_i - b + 1 - \xi_i &\leq 0\\ \mbox{ if } y_i = 1
+w^Tx_i + b + 1 - \xi_i &\leq 0\\ \mbox{ if } y_i = -1
+\end{aligned} 
+\end{equation*}
+Through observing the inequalities, we notice that the only difference is the element $w^Tx_i$ which has a different sign that could be change by the values of $y_i$. This allows us to combine both inequalities into the following constraint.
+\begin{equation*}
+- y_i(w^Tx_i + b) + 1 - \xi_i \leq = 0
+\end{equation*}
+
+\subsection*{7(b)}
+The Lagrangian for our optimization problem is as following:
+\begin{equation*}
+L ([w\;0\;\xi]^T, \alpha, \beta) = \frac{1}{2}||w||^2 + C \sum_{i=1}^l \xi_i + \sum_{i=1}^l \alpha_ig_i([w\;b\;\xi]^T) - \sum_{i=1}^l \beta_i \xi_i
+\end{equation*}
+
+\subsection*{7(c)}
+Following is the steps to minimize the Lagrangian which is ther primal form of the SVM. Here's the original Lagrangian.
+\begin{equation}\label{ori-l}
+L ([w\;0\;\xi]^T, \alpha, \beta) = \frac{1}{2}||w||^2 + C \sum_{i=1}^l \xi_i + \sum_{i=1}^l \alpha_i(- y_i(w^Tx_i + b) + 1 - \xi_i) - \sum_{i=1}^l \beta_i \xi_i
+\end{equation}
+First we, find the partial of $w$,$b$ and $\xi_i$. Following are the partials follow by setting them to 0.\\
+Finding partial of $w$
+\begin{equation}\label{wpartial}
+\begin{aligned}
+\frac{\partial}{\partial w} &= \frac{2}{2} w - \sum_{i=1}^l(\alpha_i y_i x_i) = 0\\
+w &= \sum_{i=1}^l(\alpha_i y_i x_i)
+\end{aligned}
+\end{equation}
+Finding the partial of $b$.
+\begin{equation}\label{bpartial}
+\begin{aligned}
+\frac{\partial}{\partial b} &= -\sum_{i=1}^l(\alpha_i y_i) = 0\\
+\sum_{i=1}^l(\alpha_i y_i) &= 0\\
+\end{aligned}
+\end{equation}
+Finding the partial of $xi_i$.
+\begin{equation}\label{xipartial}
+\begin{aligned}
+\frac{\partial}{\partial \xi_i} &= C - \sum_{i=1}^l(\alpha_i) - \sum_{i=1}^l(\beta_i) = 0\\
+C &= \sum_{i=1}^l(\alpha_i) + \sum_{i=1}^l(\beta_i)
+\end{aligned}
+\end{equation}\tabularnewline
+Now we insert equations \ref{wpartial}, \ref{xipartial} in equation \ref{ori-l}.
+\begin{equation}
+\begin{aligned}
+L &= \frac{1}{2}(\sum_{i=1}^l(\alpha_i y_i x_i))^2 + (\sum_{i=1}^l(\alpha_i) + \sum_{i=1}^l(\beta_i))\sum_{i=1}^l \xi_i + \sum_{i=1}^l \alpha_i(- y_i((\sum_{j=1}^l(\alpha_j y_j x_j))x_i + b) + 1 - \xi_i) - \sum_{i=1}^l \beta_i \xi_i\\
+L &= \frac{1}{2}(\sum_{i=1}^l\sum_{j=1}^l(\alpha_i \alpha_j y_i y_j x_j^T x_i)) + \sum_{i=1}^l(\alpha_i \xi_i) + \sum_{i=1}^l(\beta_i \xi_i) + \sum_{i=1}^l(\alpha_i \alpha_j y_i y_j x_j^T x_i))\\
+&- b \sum_{i=1}^l(\alpha_i y_i) + \sum_{i=1}^l(\alpha_i) - \sum_{i=1}^l(\alpha_i \xi_i) - \sum_{i=1}^l \beta_i \xi_i\\
+L &= \sum_{i=1}^l(\alpha_i) - \frac{1}{2}(\sum_{i=1}^l\sum_{j=1}^l(\alpha_i \alpha_j y_i y_j x_j^T x_i)) - b \sum_{i=1}^l(\alpha_i y_i)\\
+\end{aligned}
+\end{equation}
+By applying equation \ref{bpartial} in the previous equation, we can derive the final form
+\begin{equation}\label{final-eq}
+L^*(\alpha) = \sum_{i=1}^l(\alpha_i) - \frac{1}{2}(\sum_{i=1}^l\sum_{j=1}^l(\alpha_i \alpha_j y_i y_j x_j^T x_i))\\
+\end{equation}
+
+\subsection*{7(d)}
+As we want to write the equation in terms of $H$ and $f$ such that $L^*(\alpha) = \frac{1}{2} \alpha^TH\alpha + f^T\alpha$. By looking at equation \ref{final-eq}, we see a similar structure between them. For the first part $\frac{1}{2} \alpha^TH\alpha $
+\begin{equation*}
+\begin{aligned}
+\frac{1}{2}\alpha^TH\alpha &= \frac{1}{2}(\sum_{i=1}^l\sum_{j=1}^l(\alpha_i \alpha_j y_i y_j x_j^T x_i))\\
+H &= (\sum_{i=1}^l\sum_{j=1}^l(y_i y_j x_j^T x_i))
+\end{aligned}
+\end{equation*}
+For second part $f^T\alpha$
+\begin{equation*}
+\begin{aligned}
+f^T\alpha &= \sum_{i=1}^l(\alpha_i)\\
+f^T &= [1,1,.....1]
+\end{aligned}
+\end{equation*}

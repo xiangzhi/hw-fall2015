@@ -6,7 +6,7 @@ n = 0;
 h = -0.05;
 %the given function
 eq = @(x,y) 2/(x.^2 * (1 - y));
-
+eq2 = @(x) 1 - 2 * sqrt(1/x);
 
 %save the previous fs;
 f0 = eq(1.05,-0.951800146);
@@ -27,7 +27,7 @@ for i=1:h:0
     %move the 
     %calculate the new Y
     newY = y + h/24 * (55 * f0 - 59 *f1 + 37 *f2 - 9*f3);
-    fprintf('n:%d x:%f y:%f\n',n,i,y);
+     fprintf('%d & %f & %f & %f \\\\ \\hline \n',n,i,y,eq2(i));
     y = newY;
     n = n + 1;
 end

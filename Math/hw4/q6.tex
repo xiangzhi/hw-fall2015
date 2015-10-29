@@ -1,0 +1,106 @@
+%question 6
+
+As we are finding the maximum area with a given parameter,$p$, we know that the objective function must be
+\begin{equation*}
+f(x,y) = xy
+\end{equation*}
+with the constraint of 
+\begin{equation*}
+2y + 2x - p = 0
+\end{equation*}
+First we construct the Lagrangian
+\begin{equation*}
+L(x,y,\alpha) = xy + \alpha(2y + 2x - p)
+\end{equation*}
+We then compute the gradient at set it to 0
+\begin{equation*}
+\Delta L(x,y,\alpha) = 
+\begin{pmatrix}
+y + 2\alpha\\
+x + 2\alpha\\
+2x + 2y -p \\
+\end{pmatrix}
+= \vec{0}
+\end{equation*}
+We are now given 3 equations
+\begin{equation}\label{e1}
+y = 2\alpha
+\end{equation}
+\begin{equation}\label{e2}
+x = 2\alpha
+\end{equation}
+\begin{equation}
+\begin{aligned}\label{e3}
+2x &= -2y + p \\
+x = \frac{-2y + p}{2}
+\end{aligned}
+\end{equation}
+Insert \ref{e3} into \ref{e2}, we get
+\begin{equation}\label{e4}
+2 \alpha = \frac{-2y + p}{2}
+\end{equation}
+Then, insert \ref{e4} into \ref{e1}, we can solve $y$
+\begin{equation}\label{e5}
+\begin{aligned}
+y &= \frac{-2y + p}{2}\\
+2y &= -2y + p\\
+y = \frac{p}{4}
+\end{aligned}
+\end{equation}
+We then insert \ref{e5} back into \ref{e2} and we solve $x$
+\begin{equation}
+x = \frac{p}{4}
+\end{equation}
+We have now found the critical points in the equation, where $x = \frac{p}{4}$ and $y=\frac{p}{4}$. Notice that $x = y$. To show that we are achieving the maximum, we need to verify the second order sufficiency where we need to show the following matrix
+\begin{equation}
+L(x^*) = \Delta^2f(x*) + \alpha^T\Delta^2h(x^*)
+\end{equation}
+is negative semi-definate on $m$ which is $m = {y | \Delta h (x^*) y = 0}$. First we solve the partial derivatives for $f(x)$ and $h(x)$
+\begin{equation*}
+\begin{aligned}
+\frac{\partial}{\partial^2 x} &= 0\\
+\frac{\partial}{\partial^2 y} &= 0\\
+\frac{\partial}{\partial xy} &= 1\\
+\frac{\partial}{\partial yx} &= 1\\
+\Delta^2 h &= 0\\
+\end{aligned}
+\end{equation*}
+We have solved $L(x^*)$
+\begin{equation*}
+L(x^*) = 
+\begin{pmatrix}
+0 &1\\
+1 &0\\
+\end{pmatrix}
+\end{equation*}
+We then check where the matrix is positive semi-definite or negative semi-definite by choosing a vector from the subspace $M$ and apply $y^TLy$.
+\begin{equation}
+\begin{aligned}
+\Delta h(x) &= [2 2]\\
+[2 2]y &= 0\\
+\begin{pmatrix}
+y_1\\
+y_2 \\
+\end{pmatrix}
+& = 
+\begin{pmatrix}
+-1 \\
+1 \\
+\end{pmatrix}
+\end{aligned}
+\end{equation} 
+\begin{equation}
+\begin{pmatrix}
+-1 & 1 
+\end{pmatrix}
+\begin{pmatrix}
+0 & 1 \\
+1 & 0\\
+\end{pmatrix}
+\begin{pmatrix}
+-1 \\
+1
+\end{pmatrix}
+= -2
+\end{equation}
+This shows the matrix is negative semi-definite and therefore, $x^*$ must be the maximum of $f$.
