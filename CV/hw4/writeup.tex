@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{float}
+
+\usepackage[margin=1in]{geometry}
+
+
+\begin{document}
+
+
+
+\title{16-720 Computer Vision: Homework 4}
+\author{Xiang Zhi Tan}
+
+\maketitle
+\subsection*{Q1.1}
+As learnt in class, one of the property of the Fundemental Matrix is $p^TF = 0$. When subsituting p with the normalized pointsm, we will get.
+\begin{equation*}
+\begin{pmatrix}
+0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+F_{11}&F_{12}&F_{13}\\
+F_{21}&F_{22}&F_{23}\\
+F_{31}&F_{32}&F_{33}\\
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+0\\
+1\\
+\end{pmatrix}
+= 0
+\end{equation*}
+If we multiple the first point and the matrix, we will get
+\begin{equation*}
+\begin{pmatrix}
+F_{31}&F_{32}&F_{33}\\
+\end{pmatrix}
+\begin{pmatrix}
+0\\
+0\\
+1\\
+\end{pmatrix}
+= 0
+\end{equation*}
+If we multiple the two vectors we will get, $F_{33} \times 1 = 0$. That means that $F_{33}$ has to be equal to zero.
+\end{document}
