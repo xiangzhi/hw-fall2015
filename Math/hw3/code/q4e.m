@@ -42,7 +42,8 @@ for i=1:size(list,1)
     %scatter3(fits(:,1),fits(:,2),fits(:,3),'MarkerFaceColor','green');
 end
 
-
+%draw all the points
+scatter3(points(:,1),points(:,2),points(:,3),'MarkerFaceColor','yellow');
 
 %redraw the best scale
 disp(best);
@@ -60,5 +61,4 @@ mesh(x,y,z,'FaceAlpha','0.5','FaceColor','[1,0,0]','LineStyle','none');
 scatter3(fits(:,1),fits(:,2),fits(:,3),'MarkerFaceColor','blue');
 
 %draw the points
-%scatter3(points(:,1),points(:,2),points(:,3));
 hold off

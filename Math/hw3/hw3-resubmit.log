@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.15)  6 NOV 2015 08:54
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.15)  6 NOV 2015 09:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**/home/zhi/Academic/hw-Fall2015/Math/hw3/hw3.tex
-(/home/zhi/Academic/hw-Fall2015/Math/hw3/hw3.tex
+**/home/zhi/Academic/hw-Fall2015/Math/hw3/hw3-resubmit.tex
+(/home/zhi/Academic/hw-Fall2015/Math/hw3/hw3-resubmit.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -234,8 +234,8 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@layouthoffset=\dimen124
 \Gm@layoutvoffset=\dimen125
 \Gm@dimlist=\toks23
-) (/home/zhi/Academic/hw-Fall2015/Math/hw3/hw3.aux)
-\openout1 = `hw3.aux'.
+) (/home/zhi/Academic/hw-Fall2015/Math/hw3/hw3-resubmit.aux)
+\openout1 = `hw3-resubmit.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
@@ -289,10 +289,10 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 9.
 LaTeX Info: Redefining \pageref on input line 9.
 LaTeX Info: Redefining \nameref on input line 9.
-(/home/zhi/Academic/hw-Fall2015/Math/hw3/hw3.out) (/home/zhi/Academic/hw-Fall20
-15/Math/hw3/hw3.out)
+(/home/zhi/Academic/hw-Fall2015/Math/hw3/hw3-resubmit.out) (/home/zhi/Academic/
+hw-Fall2015/Math/hw3/hw3-resubmit.out)
 \@outlinefile=\write3
-\openout3 = `hw3.out'.
+\openout3 = `hw3-resubmit.out'.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -335,92 +335,87 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 14.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) <figures/q1_b.jpg, id=20, 1540.75626pt x 824.07875pt>
-File: figures/q1_b.jpg Graphic file (type jpg)
-<use figures/q1_b.jpg>
-Package pdftex.def Info: figures/q1_b.jpg used on input line 33.
-(pdftex.def)             Requested size: 433.62pt x 231.92247pt.
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figures/q1_b.jpg>] <figu
-res/q1c.jpg, id=41, 562.1pt x 421.575pt>
+) <figures/q1c.jpg, id=14, 562.1pt x 421.575pt>
 File: figures/q1c.jpg Graphic file (type jpg)
 <use figures/q1c.jpg>
-Package pdftex.def Info: figures/q1c.jpg used on input line 78.
+Package pdftex.def Info: figures/q1c.jpg used on input line 57.
 (pdftex.def)             Requested size: 361.34999pt x 271.00998pt.
-[2] [3 <./figures/q1c.jpg>] <figures/q1d.jpg, id=56, 1861.95625pt x 1004.75375p
-t>
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./figures/q1c.jpg>] <f
+igures/q1d.jpg, id=40, 1861.95625pt x 1004.75375pt>
 File: figures/q1d.jpg Graphic file (type jpg)
 <use figures/q1d.jpg>
-Package pdftex.def Info: figures/q1d.jpg used on input line 138.
+Package pdftex.def Info: figures/q1d.jpg used on input line 118.
 (pdftex.def)             Requested size: 361.34999pt x 194.98332pt.
-[4] <figures/q2.jpg, id=65, 1540.75626pt x 824.07875pt>
-File: figures/q2.jpg Graphic file (type jpg)
-<use figures/q2.jpg>
-Package pdftex.def Info: figures/q2.jpg used on input line 162.
-(pdftex.def)             Requested size: 361.34999pt x 193.26872pt.
-[5 <./figures/q1d.jpg>] [6 <./figures/q2.jpg>] [7] <figures/q4a_1.jpg, id=85, 1
-861.95625pt x 1004.75375pt>
+[3] [4 <./figures/q1d.jpg>] <figures/q4a_1.jpg, id=55, 1861.95625pt x 1004.7537
+5pt>
 File: figures/q4a_1.jpg Graphic file (type jpg)
 <use figures/q4a_1.jpg>
-Package pdftex.def Info: figures/q4a_1.jpg used on input line 244.
+Package pdftex.def Info: figures/q4a_1.jpg used on input line 153.
 (pdftex.def)             Requested size: 361.34999pt x 194.98332pt.
-<figures/q4a_1-alt.jpg, id=86, 1861.95625pt x 1004.75375pt>
+<figures/q4a_1-alt.jpg, id=56, 1861.95625pt x 1004.75375pt>
 File: figures/q4a_1-alt.jpg Graphic file (type jpg)
 <use figures/q4a_1-alt.jpg>
-Package pdftex.def Info: figures/q4a_1-alt.jpg used on input line 248.
+Package pdftex.def Info: figures/q4a_1-alt.jpg used on input line 157.
 (pdftex.def)             Requested size: 361.34999pt x 194.98332pt.
-[8 <./figures/q4a_1.jpg>] <figures/q4b.jpg, id=93, 1861.95625pt x 1004.75375pt>
+<figures/q4b.jpg, id=57, 1861.95625pt x 1004.75375pt>
 File: figures/q4b.jpg Graphic file (type jpg)
 <use figures/q4b.jpg>
-Package pdftex.def Info: figures/q4b.jpg used on input line 256.
+Package pdftex.def Info: figures/q4b.jpg used on input line 165.
 (pdftex.def)             Requested size: 361.34999pt x 194.98332pt.
-<figures/q4c.jpg, id=94, 1861.95625pt x 1004.75375pt>
+[5 <./figures/q4a_1.jpg> <./figures/q4a_1-alt.jpg>] <figures/q4c.jpg, id=64, 18
+61.95625pt x 1004.75375pt>
 File: figures/q4c.jpg Graphic file (type jpg)
 <use figures/q4c.jpg>
-Package pdftex.def Info: figures/q4c.jpg used on input line 266.
+Package pdftex.def Info: figures/q4c.jpg used on input line 175.
 (pdftex.def)             Requested size: 361.34999pt x 194.98332pt.
-[9 <./figures/q4a_1-alt.jpg> <./figures/q4b.jpg>] <figures/q4c-alt.jpg, id=102,
- 1861.95625pt x 1004.75375pt>
+<figures/q4c-alt.jpg, id=65, 1861.95625pt x 1004.75375pt>
 File: figures/q4c-alt.jpg Graphic file (type jpg)
 <use figures/q4c-alt.jpg>
-Package pdftex.def Info: figures/q4c-alt.jpg used on input line 270.
+Package pdftex.def Info: figures/q4c-alt.jpg used on input line 179.
 (pdftex.def)             Requested size: 361.34999pt x 194.98332pt.
-<figures/q4d.jpg, id=103, 1861.95625pt x 1004.75375pt>
+[6 <./figures/q4b.jpg> <./figures/q4c.jpg>] <figures/q4d.jpg, id=72, 1861.95625
+pt x 1004.75375pt>
 File: figures/q4d.jpg Graphic file (type jpg)
 <use figures/q4d.jpg>
-Package pdftex.def Info: figures/q4d.jpg used on input line 278.
+Package pdftex.def Info: figures/q4d.jpg used on input line 187.
 (pdftex.def)             Requested size: 361.34999pt x 194.98332pt.
-<figures/q4d-alt.jpg, id=104, 1861.95625pt x 1004.75375pt>
+<figures/q4d-alt.jpg, id=73, 1861.95625pt x 1004.75375pt>
 File: figures/q4d-alt.jpg Graphic file (type jpg)
 <use figures/q4d-alt.jpg>
-Package pdftex.def Info: figures/q4d-alt.jpg used on input line 282.
+Package pdftex.def Info: figures/q4d-alt.jpg used on input line 191.
 (pdftex.def)             Requested size: 361.34999pt x 194.98332pt.
-[10 <./figures/q4c.jpg> <./figures/q4c-alt.jpg>] <figures/q4e.jpg, id=110, 1861
-.95625pt x 1004.75375pt>
+[7 <./figures/q4c-alt.jpg> <./figures/q4d.jpg>] <figures/q4e.jpg, id=80, 1861.9
+5625pt x 1004.75375pt>
 File: figures/q4e.jpg Graphic file (type jpg)
 <use figures/q4e.jpg>
-Package pdftex.def Info: figures/q4e.jpg used on input line 291.
+Package pdftex.def Info: figures/q4e.jpg used on input line 200.
 (pdftex.def)             Requested size: 361.34999pt x 194.98332pt.
-[11 <./figures/q4d.jpg> <./figures/q4d-alt.jpg>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 294.
-[12 <./figures/q4e.jpg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 294.
-(/home/zhi/Academic/hw-Fall2015/Math/hw3/hw3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 294.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 294.
-Package rerunfilecheck Info: File `hw3.out' has not changed.
-(rerunfilecheck)             Checksum: ADA010E51E9A4C765E1AF6102954F933;148.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 294.
+<figures/q4e-alt.jpg, id=81, 1861.95625pt x 1004.75375pt>
+File: figures/q4e-alt.jpg Graphic file (type jpg)
+<use figures/q4e-alt.jpg>
+Package pdftex.def Info: figures/q4e-alt.jpg used on input line 204.
+(pdftex.def)             Requested size: 361.34999pt x 194.98332pt.
+[8 <./figures/q4d-alt.jpg> <./figures/q4e.jpg>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 207.
+[9 <./figures/q4e-alt.jpg>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 207.
+(/home/zhi/Academic/hw-Fall2015/Math/hw3/hw3-resubmit.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 207.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 207.
+Package rerunfilecheck Info: File `hw3-resubmit.out' has not changed.
+(rerunfilecheck)             Checksum: 2D541C9DA36AC3C8F36D6F39F546B8EE;74.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 207.
  ) 
 Here is how much of TeX's memory you used:
- 6529 strings out of 493304
- 93951 string characters out of 6139871
- 188343 words of memory out of 5000000
- 9877 multiletter control sequences out of 15000+600000
+ 6511 strings out of 493304
+ 93892 string characters out of 6139871
+ 187360 words of memory out of 5000000
+ 9871 multiletter control sequences out of 15000+600000
  11503 words of font info for 45 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 29i,8n,32p,625b,349s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,8n,32p,625b,340s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -430,15 +425,14 @@ t/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on /home/zhi/Academic/hw-Fall2015/Math/hw3/hw3.pdf (12 pages, 10
-91219 bytes).
+s/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+>
+Output written on /home/zhi/Academic/hw-Fall2015/Math/hw3/hw3-resubmit.pdf (9 p
+ages, 1300526 bytes).
 PDF statistics:
- 178 PDF objects out of 1000 (max. 8388607)
- 136 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 139 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 72 words of extra memory for PDF output out of 10000 (max. 10000000)
 
