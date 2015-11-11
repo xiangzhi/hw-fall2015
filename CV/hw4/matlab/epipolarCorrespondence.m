@@ -27,16 +27,6 @@ l = l/s;
 w_im1 = im1(max(0,y1-winSize):min(maxHeight, y1 + winSize), ...
     max(0,x1-winSize):min(maxWidth,x1+winSize),:);
 
-%im1 = im2double(im1);
-
-% itX = linspace(max(0,y1-winSize),min(maxHeight, y1 + winSize),winSize * 2 + 1);
-% itY = linspace(max(0,x1-winSize),min(maxWidth,x1+winSize),winSize * 2 + 1);
-% w_im1(:,:,1) = interp2(im1(:,:,1),itY',itX);
-% w_im1(:,:,2) = interp2(im1(:,:,2),itY',itX);
-% w_im1(:,:,3) = interp2(im1(:,:,3),itY',itX);
-
-
-
 bestError = inf;
 bestx = x1;
 besty = y1;
@@ -45,31 +35,20 @@ if l(1) ~= 0
     for k= winSize+1 : 1 : maxHeight-winSize
         %calculate the x
         tx2 = -(l(2) * k + l(3))/l(1);
-        
-        %itX = linspace(tx2-winSize, tx2+winSize, winSize * 2 + 1);
-        %itY  = linspace(k-winSize,k+winSize,winSize * 2 + 1);
-
-        %w_im2(:,:,1) = interp2(double(im2(:,:,1)),itX',itY);
-        %%w_im2(:,:,2) = interp2(double(im2(:,:,2)),itX',itY);
-        %w_im2(:,:,3) = interp2(double(im2(:,:,3)),itX',itY);
-       
+        %round the x to the nearest integer.
         tx2 = round(tx2);
+        %get the new window
         w_im2 = im2(k-winSize:k+winSize, tx2-winSize:tx2+winSize,:);
         %calculate the difference between the image window
-        %diff = sum(sum(sum(abs(w_im1 - w_im2))));
-        
-        %diff = sum(sum(double(w_im1(:,:,1)) - double(w_im2(:,:,1))));
-        %diff = diff + sum(sum(double(w_im1(:,:,2)) - double(w_im2(:,:,2))));
-        %diff = diff + sum(sum(double(w_im1(:,:,3)) - double(w_im2(:,:,3))));
         type = 'cityblock';
         diff = sum(sum(pdist2(double(w_im1(:,:,1)),double(w_im2(:,:,1)),type)));
         diff = diff + sum(sum(pdist2(double(w_im1(:,:,2)),double(w_im2(:,:,2)),type)));
         diff = diff + sum(sum(pdist2(double(w_im1(:,:,3)),double(w_im2(:,:,3)),type)));
-        
+        %weight the difference based on the difference in x and y,
+        %since we are assuming there is little difference between image.
         diff = diff * (1 + (abs(tx2 - x1))/maxHeight + abs(k - y1)/maxHeight);
         
         if diff < bestError
-            %imshow(w_im2);
             bestError = diff;
             bestx = tx2;
             besty = k;
@@ -77,26 +56,32 @@ if l(1) ~= 0
         testerr(k) = diff;
     end
 else
+    %this means the line is horizontal
     for k= winSize+1 : 1 : maxWidth-winSize
         %calculate the x
         ty2 =  -(l(1) * k + l(3))/l(2);
-        ty2 = floor(ty2);
+        %round to nearest interger
+        ty2 = round(ty2);
+        %calculate the image
         w_im2 = im2(ty2-winSize : ty2+winSize, k-winSize : k+winSize,:);
         %calculate the difference between the image window
-        
-        diff = sum(sum(pdist2(double(w_im1(:,:,1)),double(w_im2(:,:,1)))));
-        diff = diff + sum(sum(pdist2(double(w_im1(:,:,2)),double(w_im2(:,:,2)))));
-        diff = diff + sum(sum(pdist2(double(w_im1(:,:,3)),double(w_im2(:,:,3)))));
+        type = 'cityblock';
+        diff = sum(sum(pdist2(double(w_im1(:,:,1)),double(w_im2(:,:,1)),type)));
+        diff = diff + sum(sum(pdist2(double(w_im1(:,:,2)),double(w_im2(:,:,2)),type)));
+        diff = diff + sum(sum(pdist2(double(w_im1(:,:,3)),double(w_im2(:,:,3)),type)));
+        %weight the difference based on the difference in x and y,
+        %since we are assuming there is little difference between image.
+        diff = diff * (1 + (abs(k - x1))/maxHeight + abs(ty2 - y1)/maxHeight);
         
         if diff < bestError
             bestError = diff;
             bestx = k;
             besty = ty2;
         end
+        testerr(k) = diff;
     end
 end
-%figure(2);
-%plot(testerr);
+
 x2 = bestx;
 y2 = besty;
 

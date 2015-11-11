@@ -4,12 +4,10 @@ img2 = imread('../data/im2.png');
 load('../data/some_corresp.mat');
 load('../data/intrinsics.mat');
 M = max(size(img1));
-%F = eightpoint(pts1,pts2,M);
-F = estimateFundamentalMatrix(pts1, pts2);
-%disp(F);
-%disp(F1);
+F = eightpoint(pts1,pts2,M);
+disp(F);
 E = essentialMatrix(F,K1,K2);
-%disp(real(E));
+disp(E);
 
 M1 = K1 * [eye(3),[0;0;0]];
 M2s = camera2(E);

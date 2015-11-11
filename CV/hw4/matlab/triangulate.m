@@ -1,4 +1,4 @@
-function [P] = triangulate_t( M1, p1, M2, p2 )
+function [P] = triangulate( M1, p1, M2, p2 )
 % triangulate:
 %       M1 - 3x4 Camera Matrix 1
 %       p1 - Nx2 set of points
@@ -13,10 +13,9 @@ for i=1:1:size(p2,1)
          p2(i,1) * M2(3,:) - M2(1,:); ...
          p2(i,2) * M2(3,:) - M2(2,:)];
     
-    [u,s,v] = svd(A); 
+    [~,~,v] = svd(A); 
     normV = v(:,end)./v(4,end);
-   P(i,:) = normV(1:3)';
-   %P(i,:) = v(1:3,end);
+    P(i,:) = normV(1:3)';
 end
 
 end
