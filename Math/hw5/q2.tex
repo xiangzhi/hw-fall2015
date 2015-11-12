@@ -1,0 +1,70 @@
+\begin{equation}\label{q2_1}
+\sqrt{dx^2 + dy^2 + dz^2}
+\end{equation}
+\begin{equation}\label{q2_2}
+\begin{aligned}
+x &= R \sin v \cos u\\
+dx &= R \cos v \cos u du - R \sin v \sin u du\\
+y &= R \sin v \sin u\\
+dy &= R \cos v \sin u dv + R \sin v \cos u du\\
+z = R \cos v\\
+dz = -R \sin v dv\\
+\end{aligned}
+\end{equation}
+Insert \ref{q2_2} into \ref{q2_1}
+\begin{equation}
+\begin{aligned}
+\sqrt{(R \cos v \cos u du - R \sin v \sin u du)^2 + (R \cos v \sin u dv + R \sin v \cos u du)^2 + (-R \sin v dv)^2}
+\end{aligned}
+\end{equation}
+First, let simplify the term inside the square root.
+\begin{equation}
+\begin{aligned}
+R \cos v \cos u du - R \sin v \sin u du)^2 + (R \cos v \sin u dv + R \sin v \cos u du)^2 + (-R \sin v dv)^2\\
+\;= R^2 \cos^2 v \cos^2 u dv^2 - 2 R \cos v \cos u \sin v \sin u dv du + R^2 \sin^2 v \sin^2 u du^2 \\
+\;\;+ R^2 \cos^2 v \sin^2 u dv^2 + 2 R \cos v \cos u \sin v \sin u dv du + R^2 \sin^2 v \cos^2 u du^2 \\
+\;\;+ R^2 \sin^2 v dv^2\\
+\;= R^2 \cos^2 v \cos^2 u dv^2 + R^2 \sin^2 v \sin^2 u du^2 + R^2 \cos^2 v \sin^2 u dv^2 + R^2 \sin^2 v \cos^2 u du^2 + R^2 \sin^2 v dv^2\\
+\;= R^2 (\sin^2 v du^2 (\sin^2 u + \cos^2 u) + \cos^2 v dv^2(\cos^2 u + \sin^2 u) + \sin^2 v dv^2)\\
+\;= R^2 (\sin^2 v du^2 + \cos^2 v dv^2 + \sin^2 v dv^2)\\
+\;= R^2 (\sin^2 v du^2 + dv^2(\cos^2 v + \sin^2 v))\\
+\;= R^2 (\sin^2 v du^2 + dv^2\\
+\end{aligned}
+\end{equation}
+Plug the equation back, we will get
+\begin{equation}
+\begin{aligned}
+\sqrt{R^2 (\sin^2 v du^2 + dv^2} &= \sqrt{R^2} \sqrt{\sin^2 v du^2 + dv^2}\\
+&= R \sqrt{\sin^2 v du^2 + dv^2}\\
+&= R \sqrt{\sin^2 v du^2 + dv^2 \frac{du^2}{du^2}}\\
+\end{aligned}
+\end{equation}
+Let's define $v' = \frac{dv}{du}$
+\begin{equation}
+\begin{aligned}
+R \sqrt{\sin^2 v du^2 + dv^2 \frac{du^2}{du^2}} &= R \sqrt{\sin^2 v du^2 + dv^2 \frac{du^2}{du^2}}\\
+&= R \sqrt{\sin^2 v du^2 + v'^2 du^2}\\
+&= R \sqrt{du^2(\sin^2 v + v'^2)}\\
+&= R \sqrt{\sin^2 v + v'^2} du\\
+\end{aligned}
+\end{equation}
+Our arc length function will be now
+\begin{equation}
+L = R \int \sqrt{\sin^2 v + v'^2} du\\
+\end{equation}
+Our $F$ function will be
+\begin{equation}
+ \sqrt{\sin^2 v + v'^2}\\
+\end{equation}
+It's partial derivate to relative to $v'$ is
+\begin{equation}
+\begin{aligned}
+ F_{v'} &= \frac{\partial}{\partial v'} \sqrt{\sin^2 v + v'^2}\\
+ &= \frac{1}{2} (\sin^2 v + v'^2)^{-\frac{1}{2}} 2v'\\
+ &= \frac{v'}{\sin^2 v + v'^2}
+\end{aligned}
+\end{equation}
+Because $F$ does, not relies on $u$, the following is true:
+\begin{equation}
+v'F_{v'} - F = C
+\end{equation}

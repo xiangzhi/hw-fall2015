@@ -1,0 +1,42 @@
+We are trying to minimze the following equation
+\begin{equation}
+min A =  2 \pi \int_{x_0}^{x_1} y \sqrt{1 + y'^2}
+\end{equation}
+\begin{equation}\label{q1_1}
+F =  y \sqrt{1 + y'^2}
+\end{equation}
+\begin{equation}\label{q1_2}
+F_{y'} = \frac{yy'}{\sqrt{1 + y'^2}}
+\end{equation}
+Because F does not rely on x, the following is true
+\begin{equation}\label{q1_3}
+y'F_{y'} - F = C
+\end{equation}
+We then insert \ref{q1_1} and \ref{q1_2} into \ref{q1_3}.
+\begin{equation}
+\begin{aligned}
+y'\frac{yy'}{\sqrt{1 + y'^2}} - y \sqrt{1 + y'^2} &= C\\
+\frac{y(y')^2}{\sqrt{1 + y'^2}} - \frac{y(1 + y'^2)}{\sqrt{1 + y'^2}} &= C\\
+\frac{y(y')^2 - y - yy'^2)}{\sqrt{1 + y'^2}} &= C\\
+\frac{-y}{\sqrt{1 + y'^2}} &= C\\
+-y &= C (\sqrt{1 + y'^2}) \\
+y^2 &= C (1 + y'^2)\\
+\frac{y^2}{C} &= 1 + y'^2\\
+\frac{y^2}{C} - 1 &= y'^2\\
+\sqrt{\frac{y^2}{C} - 1} &= y'\\
+\frac{dy}{dx} &= \sqrt{\frac{y^2}{C} - 1}\\
+\frac{dx}{dy} &= \frac{1}{\sqrt{\frac{y^2}{C} - 1}}\\
+\end{aligned}
+\end{equation}
+Now, we can use solve the differential equation by seperation.
+\begin{equation}
+\begin{aligned}
+dx &= \frac{1}{\sqrt{\frac{y^2}{C} - 1}} dy\\
+\int dx &= \int \frac{1}{\sqrt{\frac{y^2}{C} - 1}} dy\\
+\int dx &= \int \frac{1}{\sqrt{\frac{y^2}{C} - 1}} dy\\
+x + k_1 &= cosh^-1(\frac{y}{C}) + k_2
+cosh(x + k) &= \frac{y}{C}
+\end{aligned}
+\end{equation}
+The constant terms, $C$ and $k$ will depend on the constraints of $y_0 = y(x_0)$ and $y_1 = y(x_1)$. This shows that from the Euler-Lagarange equation, the curve that will minimize the surface of revolution is a $cosh$ curve. However, this might not be the true for all y. Another possible solution that is not $C^2$ is a curve where it has 2 disk on the starting and the ending point that is connected with a line in between. Whether that solution or the cosh solution is the minimum surface area will depend on the initialization.
+

@@ -1,0 +1,86 @@
+As learned in class, the Lagrangian is defined as $L = T - V$. Because we are not calculating gravity, the potential energy, $V$ is zero and the $T$ is the sum of all kinectic energy. Therefore,
+\begin{equation}
+L = T - V = T = \frac{1}{2} m_1 v_1^2 + \frac{1}{2} m_2 v_2^2 + \frac{1}{2} m_2 v_2^2
+\end{equation}
+Now we will try to derive all the variables in the equation above. Because there are two end points, the first point will have the subscript of 2 and the second point will have the subscript of 3. This will change the previous equation to $\frac{1}{2} m_1 v_1^2 + \frac{1}{2} m_2 v_2^2 + \frac{1}{2} m_3 v_3^2$. First we will get those variables that could immediately obtain from the figure.
+\begin{equation}
+\begin{aligned}
+v_1 &= l_1 \dot{\theta}_1\\
+x_1 &= l_1 cos_1 + l_2 cos_{12}\\
+x_2 &= l_1 cos_1 - l_2 cos_{12}\\
+y_1 &= l_1 sin_1 + l_2 sin_{12}\\
+y_2 &= l_1 sin_1 - l_2 sin_{12}\\
+\end{aligned}
+\end{equation}
+Now, we will calculate the first derivative of the end points
+\begin{equation}
+\begin{aligned}
+\dot{x}_1 &= l_1(-sin_1)\dot{\theta}_1 + l_2(-sin_{12})(\dot{\theta}_1 + \dot{\theta}_2)\\
+&= -l_1 sin_1 \dot{\theta}_1 - l_2 sin_{12}(\dot{\theta}_1 + \dot{\theta}_2)\\
+\dot{x}_2 &= l_1(-sin_1)\dot{\theta}_1 - l_2(-sin_{12})(\dot{\theta}_1 + \dot{\theta}_2)\\
+&= -l_1 sin_1 \dot{\theta}_1 + l_2 sin_{12}(\dot{\theta}_1 + \dot{\theta}_2)\\
+\dot{y}_1 &= l_1 cos_1 \dot{\theta}_1 + l_2 cos_{12}(\dot{\theta}_1 + \dot{\theta}_2)\\
+\dot{y}_2 &= l_1 cos_1 \dot{\theta}_1 - l_2 cos_{12}(\dot{\theta}_1 + \dot{\theta}_2)\\
+\end{aligned}
+\end{equation}
+Now we will be using the previous equation to derive $v_3$ and $v_2$ using the fact that $v^2 = \dot{x}^2 + \dot{y}^2$. For the first point
+\begin{equation}
+\begin{aligned}
+v_2^2 &= l_1^2\theta_1^2 + l_2^2(\dot{\theta}_1 + \dot{\theta}_2)^2 + 2 l_1 l_2 cos_2 (\dot{\theta}_1 + \dot{\theta}_2) \dot{\theta}_1\\
+v_3^2 &= l_1^2\theta_1^2 + l_2^2(\dot{\theta}_1 - \dot{\theta}_2)^2 - 2 l_1 l_2 cos_2 (\dot{\theta}_1 + \dot{\theta}_2) \dot{\theta}_1\\
+\end{aligned}
+\end{equation}
+From all the equations above, we get our final Lagrangian
+\begin{equation}
+\begin{aligned}
+L &= \frac{1}{2}m_1(l_1 \dot{\theta}_1)^2 + \frac{1}{2}m_2(l_1^2\theta_1^2 + l_2^2(\dot{\theta}_1 + \dot{\theta}_2) + 2 l_1 l_2 cos_2 (\dot{\theta}_1 + \dot{\theta}_2) \dot{\theta}_1)
+ + \frac{1}{2}m_2(l_1^2\theta_1^2 + l_2^2(\dot{\theta}_1 - \dot{\theta}_2)^2 - 2 l_1 l_2 cos_2 (\dot{\theta}_1 + \dot{\theta}_2) \dot{\theta}_1)\\
+&= \frac{1}{2}m_1l_1^2 \dot{\theta}_1^2 + \frac{1}{2}m_2 l_1^2\theta_1^2 + \frac{1}{2}m_2 l_2^2(\dot{\theta}_1 + \dot{\theta}_2)^2 + m_2l_1 l_2 cos_2 (\dot{\theta}_1 + \dot{\theta}_2) \dot{\theta}_1) + \frac{1}{2}m_2 l_1^2\theta_1^2 + \frac{1}{2}m_2 l_2^2(\dot{\theta}_1 - \dot{\theta}_2)^2 - m_2 l_1 l_2 cos_2 (\dot{\theta}_1 + \dot{\theta}_2) \dot{\theta}_1\\
+&= \frac{1}{2}m_1l_1^2 \dot{\theta}_1^2 + \frac{1}{2}m_2 l_1^2\theta_1^2 + \frac{1}{2}m_2 l_2^2(\dot{\theta}_1 + \dot{\theta}_2)^2 + \frac{1}{2}m_2 l_1^2\theta_1^2 + \frac{1}{2}m_2 l_2^2(\dot{\theta}_1 - \dot{\theta}_2)^2\\
+&= \frac{1}{2}m_1l_1^2 \dot{\theta}_1^2 + m_2 l_1^2\theta_1^2 + m_2 l_2^2(\dot{\theta}_1 + \dot{\theta}_2)^2\\
+&= \frac{1}{2}m_1l_1^2 \dot{\theta}_1^2 + m_2 l_1^2\theta_1^2 + m_2 l_2^2(\dot{\theta}_1^2 + 2 \dot{\theta}_1 \dot{\theta}_2 +  \dot{\theta}_2^2)\\
+&= \frac{1}{2}m_1l_1^2 \dot{\theta}_1^2 + m_2 l_1^2\theta_1^2 + m_2 l_2^2 \dot{\theta}_1^2 + 2 m_2 l_2^2 \dot{\theta}_1 \dot{\theta}_2 + m_2 l_2^2 \dot{\theta}_2^2
+\end{aligned}
+\end{equation}
+Now we can apply Lagrangian dynamics. First we find the partial derivative of the system.
+\begin{equation}
+\begin{aligned}
+\frac{\partial L}{\partial \theta_1} &= 0\\
+\frac{\partial L}{\partial \theta_2} &= 0\\
+\frac{\partial L}{\partial \dot{\theta}_1} &= m_1l_1^2\dot{\theta}_1 + 2 m_2 l_1^2 \dot{\theta}_1 + 2 m_2 l_2^2 \dot{\theta}_1 + 2 m_2 l_2^2 \dot{\theta}_2\\
+\frac{\partial L}{\partial \dot{\theta}_1} &= 2m_2l_2^2 \dot{\theta}_1 + 2m_2 l_2^2\dot{\theta}_2\\
+\end{aligned}
+\end{equation}
+Now we derive some of the partial derivation respective to time.
+\begin{equation}
+\begin{aligned}
+\frac{d}{dt}\frac{\partial L}{\partial \dot{\theta}_1} &= m_1l_1^2\ddot{\theta}_1 + 2 m_2 l_1^2 \ddot{\theta}_1 + 2 m_2 l_2^2 \ddot{\theta}_1 + 2 m_2 l_2^2 \ddot{\theta}_2\\
+\frac{d}{dt} \frac{\partial L}{\partial \dot{\theta}_1} &= 2m_2l_2^2 \ddot{\theta}_1 + 2m_2 l_2^2\ddot{\theta}_2\\
+\end{aligned}
+\end{equation}
+As we learn in class, the torque, $\tau$ is equal to $\frac{d}{dt} \frac{\partial L}{\partial \dot{\theta}} - \frac{\partial L}{\partial \theta}$. Following is the two torques for the system.
+\begin{equation}
+\begin{aligned}
+\tau_1 &= m_1l_1^2\ddot{\theta}_1 + 2 m_2 l_1^2 \ddot{\theta}_1 + 2 m_2 l_2^2 \ddot{\theta}_1 + 2 m_2 l_2^2 \ddot{\theta}_2\\
+&= \ddot{\theta}_1(m_1l_2^2 + 2 m_2 l_1^2 + 2 m_2 l_2^2) + \ddot{\theta}_2(2 m_2 l_2^2)\\
+\tau_2 &= 2m_2l_2^2 \ddot{\theta}_1 + 2m_2 l_2^2\ddot{\theta}_2\\
+&= \ddot{\theta}_1(2m_2l_2^2) + \ddot{\theta}_2(2m_2 l_2^2)
+\end{aligned}
+\end{equation}
+
+\subsection*{4(b)}
+When the $ \ddot{\theta}_2 = 0$, $tau_1$ would be
+\begin{equation}\label{q4_1}
+\begin{aligned}
+\tau_1 &= \ddot{\theta}_1(m_1l_1^2 + 2 m_2 l_1^2 + 2 m_2 l_2^2) + 0(2 m_2 l_2^2)\\
+&= \ddot{\theta}_1(m_1l_1^2 + 2 m_2 l_1^2 + 2 m_2 l_2^2)\\
+\end{aligned}
+\end{equation}
+In angular rotation, the term relating to $\ddot{\theta}_1$ is known as the \textbf{Moment of Inertia}. According to wikipedia, the moment of inertia determines how much force is needed for a desired angular acceleration,$\ddot{\theta}_1$. The moment of inertia for a point object is $I = mr^2$ where $r$ is the length to the point. This simple equation explained the first term of the equation which is $m_1l_1^2$ that is the moment of inertia for the point at the end of $l_1$. The moment of inertia for the two endpoints relative to the end of $l_1$ would be $m_2l_2^2$ for each. To transform the moment of inertia back to the origin point, we could use the \textbf{Parallel Axis Theorem} which states that to transform the rotation axis to a new axis, the Inertia is related by $I = I_{cm} + md^2$ where $I_{cm}$ is the inertia relative to the current point, $m$ is the mass and $d$ being the distance between the old point and new point. We can them sum up the inertia of all three masses.
+\begin{equation}
+\begin{aligned}
+I &= m_1l_1^2 + m_2l_2^2 + m_2l_1 + m_2l_2^2 + m_2l_1\\
+I &= m_1l_1^2 + 2 m_2l_2^2 + 2 m_2l_1\\
+\end{aligned}
+\end{equation}
+We have successfully derived the moment of Inertia from the information in the figure which is the same term related to $\ddot{\theta}_1$ in \ref{q4_1}.

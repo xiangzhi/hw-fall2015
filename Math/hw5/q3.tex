@@ -1,0 +1,24 @@
+\begin{equation}\label{q3_1}
+F(x,y,y') = \frac{1}{\sqrt{-2g}}\frac{\sqrt{1+y'^2}}{\sqrt{y_0 - y_1}}
+\end{equation}
+\begin{equation}\label{q3_2}
+F_{y'} = \frac{1}{\sqrt{-2g}}\frac{y'}{\sqrt{(y_0 - y)(1 + y'^2)}}
+\end{equation}
+\begin{equation}\label{q3_3}
+F_{y'} - \frac{g_y F}{g_x + g_y y'} = 0
+\end{equation}
+Insert \ref{q3_1} and \ref{q3_2} into \ref{q3_3}.
+\begin{equation}
+\begin{aligned}
+\frac{1}{\sqrt{-2g}}\frac{y'}{\sqrt{(y_0 - y)(1 + y'^2)}} - \frac{g_y \sqrt{1+y'^2}}{(\sqrt{-2g}\sqrt{y_0 - y_1})(g_x + g_y y')} &= 0\\
+\frac{1}{\sqrt{-2g}}\frac{y'}{\sqrt{(y_0 - y)(1 + y'^2)}} &= \frac{g_y \sqrt{1+y'^2}}{(\sqrt{-2g}\sqrt{y_0 - y_1})(g_x + g_y y')}\\
+\frac{1}{\sqrt{-2g}} \frac{1}{\sqrt{y_0 - y_1}} \frac{y'}{\sqrt{(1 + y'^2)}} &= \frac{1}{\sqrt{-2g}} \frac{1}{\sqrt{y_0 - y_1}} \frac{g_y \sqrt{1+y'^2}}{(g_x + g_y y')}\\
+\frac{y'}{\sqrt{(1 + y'^2)}} &= \frac{g_y \sqrt{1+y'^2}}{(g_x + g_y y')}\\
+\frac{y'}{\sqrt{(1 + y'^2)}} &= \frac{g_y(1+y'^2)}{\sqrt{(1 + y'^2)}(g_x + g_y y')}\\
+y' &= \frac{g_y(1+y'^2)}{(g_x + g_y y')}\\
+g_xy' + g_yy'^2 &= g_y + g_yy'^2\\
+g_xy' &= g_y\\
+y' &= \frac{g_x}{g_y}
+\end{aligned}
+\end{equation}
+You can observe that $\frac{g_x}{g_y}$ gives us the slope for the gradient of the iso-contour. As we know, the gradient of an iso-contour are outwards from the center and perpendicular to the tangient of the iso-contuor. There, showing that the direction of the function, $y'$ is the same as the slope, meants the direction of the curve must be parallel to the gradient which is perpendicular to the iso-contour.
