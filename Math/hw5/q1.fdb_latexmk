@@ -1,17 +1,15 @@
 # Fdb version 3
-["pdflatex"] 1447352522 "/home/zhi/Academic/hw-Fall2015/Math/hw5/q2.tex" "/home/zhi/Academic/hw-Fall2015/Math/hw5/q2.pdf" "q2" 1447352523
+["pdflatex"] 1447355797 "/home/zhi/Academic/hw-Fall2015/Math/hw5/q1.tex" "/home/zhi/Academic/hw-Fall2015/Math/hw5/q1.pdf" "q1" 1447355797
   "/etc/texmf/web2c/texmf.cnf" 1442327578 1101 af7716885e081ab43982cab7b4672c1a ""
-  "/home/zhi/Academic/hw-Fall2015/Math/hw5/q2.aux" 1447348175 8 a94a2480d3289e625eea47cd1b285758 ""
-  "/home/zhi/Academic/hw-Fall2015/Math/hw5/q2.tex" 1447352517 5312 126a717ffa8ed18a77b86fce7677c6f7 ""
+  "/home/zhi/Academic/hw-Fall2015/Math/hw5/q1.aux" 1447355797 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/home/zhi/Academic/hw-Fall2015/Math/hw5/q1.tex" 1447355795 1929 7e5834c99915f59e4d559701cacd1610 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1442327684 3822874 7e5f5cecf59a3110697997256b4f7675 ""
-  "q2.tex" 1447352517 5312 126a717ffa8ed18a77b86fce7677c6f7 ""
+  "q1.tex" 1447355795 1929 7e5834c99915f59e4d559701cacd1610 ""
   (generated)
-  "/home/zhi/Academic/hw-fall2015/Math/hw5/q2.log"
-  "q2.log"
-  "/home/zhi/Academic/hw-fall2015/Math/hw5/q2.pdf"
-  "/home/zhi/Academic/hw-Fall2015/Math/hw5/q2.log"
-  "/home/zhi/Academic/hw-Fall2015/Math/hw5/q2.pdf"
+  "/home/zhi/Academic/hw-Fall2015/Math/hw5/q1.log"
+  "/home/zhi/Academic/hw-Fall2015/Math/hw5/q1.pdf"
+  "q1.log"

@@ -1,7 +1,8 @@
-We are trying to minimze the following equation
+We are trying to minimize the following equation
 \begin{equation}
-min A =  2 \pi \int_{x_0}^{x_1} y \sqrt{1 + y'^2}
+min A =  2 \pi \int_{y(x_0)}^{y(x_1)} y \sqrt{1 + y'^2}
 \end{equation}
+This means that
 \begin{equation}\label{q1_1}
 F =  y \sqrt{1 + y'^2}
 \end{equation}
@@ -28,15 +29,15 @@ y^2 &= C (1 + y'^2)\\
 \frac{dx}{dy} &= \frac{1}{\sqrt{\frac{y^2}{C} - 1}}\\
 \end{aligned}
 \end{equation}
-Now, we can use solve the differential equation by seperation.
+Now, we can use solve the differential equation by separation.
 \begin{equation}
 \begin{aligned}
 dx &= \frac{1}{\sqrt{\frac{y^2}{C} - 1}} dy\\
 \int dx &= \int \frac{1}{\sqrt{\frac{y^2}{C} - 1}} dy\\
 \int dx &= \int \frac{1}{\sqrt{\frac{y^2}{C} - 1}} dy\\
-x + k_1 &= cosh^-1(\frac{y}{C}) + k_2
+x + k_1 &= cosh^-1(\frac{y}{C}) + k_2\\
 cosh(x + k) &= \frac{y}{C}
 \end{aligned}
 \end{equation}
-The constant terms, $C$ and $k$ will depend on the constraints of $y_0 = y(x_0)$ and $y_1 = y(x_1)$. This shows that from the Euler-Lagarange equation, the curve that will minimize the surface of revolution is a $cosh$ curve. However, this might not be the true for all y. Another possible solution that is not $C^2$ is a curve where it has 2 disk on the starting and the ending point that is connected with a line in between. Whether that solution or the cosh solution is the minimum surface area will depend on the initialization.
+The constant terms, $C$ and $k$ will depend on the constraints of $y_0 = y(x_0)$ and $y_1 = y(x_1)$. This shows that from the Euler-Lagrange equation, the $C^2$ curve that will minimize the surface of revolution is a $cosh$ curve. However, this might not be the true for all y. Another `optimal curve' that is not $C^2$ is a `curve' where it has 2 disk on the starting and the ending point that is connected with a line in between. Whether that solution or the cosh solution is solution with the minimum surface area will depend on the constraints of $y_0 = y(x_0)$ and $y_1 = y(x_1)$.
 

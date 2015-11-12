@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.24)  12 NOV 2015 01:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.15)  12 NOV 2015 14:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**/home/zhi/Academic/hw-fall2015/Math/hw5/hw5.tex
-(/home/zhi/Academic/hw-fall2015/Math/hw5/hw5.tex
+**/home/zhi/Academic/hw-Fall2015/Math/hw5/hw5.tex
+(/home/zhi/Academic/hw-Fall2015/Math/hw5/hw5.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 78 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -312,7 +312,7 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@layouthoffset=\dimen139
 \Gm@layoutvoffset=\dimen140
 \Gm@dimlist=\toks23
-) (/home/zhi/Academic/hw-fall2015/Math/hw5/hw5.aux)
+) (/home/zhi/Academic/hw-Fall2015/Math/hw5/hw5.aux)
 \openout1 = `hw5.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -367,7 +367,7 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 11.
 LaTeX Info: Redefining \pageref on input line 11.
 LaTeX Info: Redefining \nameref on input line 11.
-(/home/zhi/Academic/hw-fall2015/Math/hw5/hw5.out) (/home/zhi/Academic/hw-fall20
+(/home/zhi/Academic/hw-Fall2015/Math/hw5/hw5.out) (/home/zhi/Academic/hw-Fall20
 15/Math/hw5/hw5.out)
 \@outlinefile=\write3
 \openout3 = `hw5.out'.
@@ -413,20 +413,20 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Try loading font information for U+msb on input line 16.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (/home/zhi/Academic/hw-fall2015/Math/hw5/q1.tex [1
+) (/home/zhi/Academic/hw-Fall2015/Math/hw5/q1.tex [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (/home/zhi/Academic/hw-fa
-ll2015/Math/hw5/q2.tex [2]) (/home/zhi/Academic/hw-fall2015/Math/hw5/q3.tex [3]
-) (/home/zhi/Academic/hw-fall2015/Math/hw5/q4.tex [4]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (/home/zhi/Academic/hw-Fa
+ll2015/Math/hw5/q2.tex [2] [3] [4]) (/home/zhi/Academic/hw-Fall2015/Math/hw5/q3
+.tex [5]) (/home/zhi/Academic/hw-Fall2015/Math/hw5/q4.tex [6]
 Overfull \hbox (73.1989pt too wide) detected at line 44
  $[] []$  
  []
 
-[5])
+[7])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 25.
-[6]
+[8]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 25.
-(/home/zhi/Academic/hw-fall2015/Math/hw5/hw5.aux)
+(/home/zhi/Academic/hw-Fall2015/Math/hw5/hw5.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 25.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 25.
 Package rerunfilecheck Info: File `hw5.out' has not changed.
@@ -434,13 +434,13 @@ Package rerunfilecheck Info: File `hw5.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 25.
  ) 
 Here is how much of TeX's memory you used:
- 8417 strings out of 493304
- 122235 string characters out of 6139871
- 251455 words of memory out of 5000000
- 11739 multiletter control sequences out of 15000+600000
+ 8426 strings out of 493304
+ 122317 string characters out of 6139871
+ 258545 words of memory out of 5000000
+ 11742 multiletter control sequences out of 15000+600000
  11503 words of font info for 45 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 29i,11n,35p,1075b,366s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,12n,35p,1075b,366s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -454,11 +454,11 @@ s/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on /home/zhi/Academic/hw-fall2015/Math/hw5/hw5.pdf (6 pages, 158
-191 bytes).
+Output written on /home/zhi/Academic/hw-Fall2015/Math/hw5/hw5.pdf (8 pages, 163
+926 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
- 132 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
+ 175 PDF objects out of 1000 (max. 8388607)
+ 149 compressed objects within 2 object streams
+ 48 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
