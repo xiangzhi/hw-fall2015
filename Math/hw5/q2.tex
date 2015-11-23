@@ -1,3 +1,8 @@
+We want to find the shortest curve between two points on a sphere. The function that we are trying to minimize is
+\begin{equation}
+\int \sqrt{dx^2 + dy^2 + dz^2}
+\end{equation}
+First, we need to transform the following arc length equation into $(u,v)$ space.
 \begin{equation}\label{q2_1}
 \sqrt{dx^2 + dy^2 + dz^2}
 \end{equation}
@@ -28,7 +33,7 @@ R \cos v \cos u du - R \sin v \sin u du)^2 + (R \cos v \sin u dv + R \sin v \cos
 \;= R^2 (\sin^2 v du^2 (\sin^2 u + \cos^2 u) + \cos^2 v dv^2(\cos^2 u + \sin^2 u) + \sin^2 v dv^2)\\
 \;= R^2 (\sin^2 v du^2 + \cos^2 v dv^2 + \sin^2 v dv^2)\\
 \;= R^2 (\sin^2 v du^2 + dv^2(\cos^2 v + \sin^2 v))\\
-\;= R^2 (\sin^2 v du^2 + dv^2\\
+\;= R^2 (\sin^2 v du^2 + dv^2)\\
 \end{aligned}
 \end{equation}
 Plug the equation back, we will get
@@ -53,18 +58,58 @@ Our arc length function will be now
 L = R \int \sqrt{\sin^2 v + v'^2} du\\
 \end{equation}
 Our $F$ function will be
-\begin{equation}
+\begin{equation}\label{q2_3}
  \sqrt{\sin^2 v + v'^2}\\
 \end{equation}
 It's partial derivate to relative to $v'$ is
 \begin{equation}
-\begin{aligned}
+\begin{aligned}\label{q2_4}
  F_{v'} &= \frac{\partial}{\partial v'} \sqrt{\sin^2 v + v'^2}\\
  &= \frac{1}{2} (\sin^2 v + v'^2)^{-\frac{1}{2}} 2v'\\
- &= \frac{v'}{\sin^2 v + v'^2}
+ &= \frac{v'}{\sqrt{\sin^2 v + v'^2}}
 \end{aligned}
 \end{equation}
 Because $F$ does, not relies on $u$, the following is true:
 \begin{equation}
 v'F_{v'} - F = C
 \end{equation}
+We then insert the \ref{q2_3} and \ref{q2_4} into the previous equation.
+\begin{equation}
+\begin{aligned}
+v'(\frac{v'}{\sqrt{\sin^2 v + v'^2}}) - \sqrt{\sin^2 v + v'^2} &= C\\
+\frac{(v')^2}{\sqrt{\sin^2 v + v'^2}}) - \sqrt{\sin^2 v + v'^2} &= C\\
+\frac{(v')^2}{\sqrt{\sin^2 v + v'^2}}) - \frac{\sin^2 v + v'^2}{\sqrt{\sin^2 v + v'^2}} &= C\\
+\frac{(v')^2}{\sqrt{\sin^2 v + v'^2}}) - \frac{\sin^2 v + v'^2}{\sqrt{\sin^2 v + v'^2}} &= C\\
+\frac{(v')^2 - \sin^2 v + v'^2}{\sqrt{\sin^2 v + v'^2}} &= C\\
+\frac{\sin^2 v}{\sqrt{\sin^2 v + v'^2}} &= C\\
+\sin^2 v &= C \sqrt{\sin^2 v + v'^2}\\
+\sin^4 v &= C^2 (\sin^2 v + v'^2)\\
+\sin^4 v &= C^2 \sin^2 v + C^2 v'^2\\
+\sin^4 v - C^2 \sin^2 v &= C^2 v'^2\\
+\sin^4 v - C^2 \sin^2 v &= C^2 v'^2\\
+\frac{\sin^4 v - C^2 \sin^2 v}{C^2} &= v'^2\\
+\frac{\sqrt{\sin^4 v - C^2 \sin^2 v}}{\sqrt{C^2}} &= v'\\
+\frac{\sqrt{\sin^4 v - C^2 \sin^2 v}}{C} &= \frac{dv}{du}\\
+\frac{C}{\sqrt{\sin^4 v - C^2 \sin^2 v}} &= \frac{du}{dv}\\
+\frac{C dv}{\sqrt{\sin^4 v - C^2 \sin^2 v}} &= du\\
+\int \frac{C dv}{\sqrt{\sin^4 v - C^2 \sin^2 v}} &= \int du\\
+\end{aligned}
+\end{equation}
+Now we could used the identity given in the homework. This will give us
+\begin{equation}
+\begin{aligned}
+u + k_1&= -\sin^-1 {(\frac{\cot v}{\sqrt{\frac{1}{C^2}-1}}}) + k_2\\
+u + k_3 &= -\sin^-1 {(\frac{\cot v}{\sqrt{\frac{1}{C^2}-1}}})\\
+\sin (u + k_3) &= -(\frac{\cot v}{\sqrt{\frac{1}{C^2} - 1}})\\
+ \sin (u + k_3) &= -(\frac{\cos v}{ \sin v \sqrt{\frac{1}{C^2}-1}}))\\
+\sin u \cos k_3 + \cos u \sin k_3 &= -(\frac{\cos v}{ \sin v \sqrt{\frac{1}{C^2}-1}})\\
+(\sin u \cos k_3 + \cos u \sin k_3)(\sin v) &= -(\frac{\cos v}{\sqrt{\frac{1}{C^2}-1}})\\
+\sin u \cos k_3 \sin v + \cos u \sin k_3 \sin v &= -(\frac{\cos v}{\sqrt{\frac{1}{C^2}-1}})\\
+\sin u \cos k_3 \sin v + \cos u \sin k_3 \sin v + (\frac{\cos v}{\sqrt{\frac{1}{C^2}-1}}) &= 0
+\end{aligned}
+\end{equation}
+Now we substitute \ref{q2_2} which where $\frac{x}{R} = \sin v \cos u$, $\frac{y}{R} = \sin v \sin u$ and $\frac{z}{R} = \cos v$ into the previous equation, we will get
+\begin{equation}\label{q2_f}
+\cos k_3 \frac{y}{R} + \sin k_3 \frac{x}{R} + \frac{z}{R} \frac{1}{\sqrt{\frac{1}{C^2}-1}} = 0.
+\end{equation}
+Equation \ref{q2_f} is an infinite plane equation with the origin at $(0,0,0)$. This means that the plane will intercept the sphere at the center of the sphere. The interception of the plane and sphere will create a greater circle. Therefore, the shortest curve between the two points on the sphere will be the arch of this greater circle.
