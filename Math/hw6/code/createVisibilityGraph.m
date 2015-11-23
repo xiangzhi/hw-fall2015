@@ -1,4 +1,4 @@
-function [graph] = createVisibilityGraph(startPoint, endPoint, obsticles)
+function [graph, locIndex] = createVisibilityGraph(startPoint, endPoint, obsticles)
 
 
 obsticleEdges = []; %the edges of obsticles
@@ -15,12 +15,16 @@ for k=1:length(obsticles)
         startEdges = [startEdges; startEdge];
         
         endEdge = [obsticle(i,:) endPoint];
-        endEdges = [endEdges; endEdge]
+        endEdges = [endEdges; endEdge];
         
         edge = [obsticle(i,:) obsticle(i+1,:)];
         obsticleEdges = [obsticleEdges;edge];
     end
 end
+
+%now we generate a list for all edges on each obsticle to each
+obE
+
 
 %there's also a edge between start and end
 edge = [startPoint endPoint];
@@ -29,38 +33,76 @@ startEdges = [startEdges; edge];
 
 %now we test every single startEdge to see if they overlap or not with 
 %an obsticle edge
-se = [];
-for i = 1:1:size(startEdges,1)
-    %now we do the tests
-    fail = false;
-    startE = startEdges(i,:);
-    for j=1:1:size(obsticleEdges,1)
-        obE = obsticleEdges(j,:);
-        
-        %check if they share the same starting and ending points, if they
-        %do, it's probably okay
-        if obE(1:2) == startE(3:4) | obE(3:4) == startE(1:2) | ...
-                obE(1:2) == startE(1:2) | obE(3:4) == startE(3:4)
-            continue;
-        end
-        
-        
-        p1Check = (startE(1) - startE(3))*(obE(1) - startE(2)) - (startE(2) - startE(4))*(obE(2) - startE(1));
-        p2Check = (startE(1) - startE(3))*(obE(3) - startE(2)) - (startE(2) - startE(4))*(obE(4) - startE(1));
-        
-        if sign(p1Check) == sign(p2Check)
-            continue;
-        end
-        
-        fail = true;
-        break;
-    end
-    
-    if ~fail
-        se = [se;startEdges(i,:)];
-    end
-    
-end 
+se = edgeIntersectionCheck(startEdges, obsticleEdges);
+ee = edgeIntersectionCheck(endEdges, obsticleEdges);
 
-graph = [se; endEdges; obsticleEdges];
-%generate vertices from the starting point to all the vertices
+edges = [se; ee; obsticleEdges];
+
+%generate a matrix that shows the link between vertices
+graphSize = max([prod(size(se)) prod(size(ee)) prod(size(obsticleEdges))]);
+
+locIndex = zeros(graphSize,2);
+locIndexPtr = 2;
+graph = cell(1,graphSize);
+%initialize each cell as empty matrices?
+stack = [startPoint];
+locIndex(1,:) = startPoint;
+%search through all the edges and see which edge is connected to one,
+%if connected then add to graph
+while size(stack,1) ~= 0
+    
+    %see which vertices we are search for
+    curSearch = stack(end,:);
+    if size(stack,1) > 2
+        stack = stack(1:end-1,:)
+    else
+        stack = [];
+    end
+    
+    %find the index of the currentPoint
+     [~,curIdx] = ismember(locIndex,curSearch,'rows');
+     curIdx = find(curIdx==1);
+    
+    %look through all the edges that start at the current Point
+    %add the points to it
+    for j=1:1:size(edges,1)
+        if(edges(j,1:2) == curSearch)
+            
+            endPt = edges(j,3:4);
+            %first check if we already have indexed the end point
+            if(~ismember(locIndex,endPt,'rows'))
+                %give it an index
+                locIndex(locIndexPtr,:) = endPt;
+                locIndexPtr = locIndexPtr + 1;
+                %push it onto stack
+                stack = [endPt;stack];
+            end
+            %find the locIndex for the end point
+            [~,idx] = ismember(locIndex,endPt,'rows');
+            idx = find(idx==1);
+            %add it to the search graph for this startpoint
+            graph{curIdx} = [graph{curIdx};idx];
+        end
+        
+        %repeat the search in the oposite direction
+        if(edges(j,3:4) == curSearch)
+            
+            endPt = edges(j,1:2);
+            %first check if we already have indexed the end point
+            if(~ismember(locIndex,endPt,'rows'))
+                %give it an index
+                locIndex(locIndexPtr,:) = endPt;
+                locIndexPtr = locIndexPtr + 1;
+                %push it onto stack
+                stack = [endPt;stack];
+            end
+            %find the locIndex for the end point
+            [~,idx] = ismember(locIndex,endPt,'rows');
+            idx = find(idx==1);
+            %add it to the search graph for this startpoint
+            graph{curIdx} = [graph{curIdx};idx];
+        end
+        
+    end
+end
+end

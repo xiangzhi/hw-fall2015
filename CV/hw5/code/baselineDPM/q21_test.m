@@ -1,9 +1,11 @@
 clear all;
 load('q21_data.mat');
 
-bandwidth =10;  % This is an example. You may need to adjust this value
+bandwidth = 35;  % This is an example. You may need to adjust this value
 threshold = bandwidth*0.01; % This is an example. You may need to adjust this value
 [clusterCenters,clusterMemberships] = MeanShift(data,bandwidth,threshold);
+
+save('q21_result.mat','clusterCenters', 'clusterMemberships');
 
 %% Draw
 clusterNum  = size(clusterCenters,1);
@@ -17,3 +19,5 @@ for cIdx = 1:clusterNum
     tempCenter = clusterCenters(cIdx,:);
     plot(clusterCenters(cIdx,1),clusterCenters(cIdx,2),'k+','MarkerSize',10,'lineWidth',2)      
 end
+
+print('q21_clustering','-djpeg');

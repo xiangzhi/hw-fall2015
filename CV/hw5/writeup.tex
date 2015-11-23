@@ -1,5 +1,7 @@
 \documentclass{article}
-\usepackage{graphicx}
+\usepackage[demo]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{float}
@@ -23,8 +25,12 @@ When it is a mission critical application where the application cannot tolerate 
 
 \subsection*{Q1.3}
 1 exmplar detectors. Again one template detector.
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=6.5in]{./figures/q2_6}
-% \end{figure}
+
+
+\subsection*{Q2.1}
+A lower bandwidth will cause more clusters to form as it will find the different local maxima density in each clusters. I ended up using the bandwidth of $35$ through observation of the figure as the bandwidth should be the radius for the clustering circle we want to form.
+
+\subsection*{Q2.2.2}
+When there is more than K number of clusters, I selected the best clusters based on the numbers of memberships in the clusters. My rational is that the best centers would have more members than others, therefore the clusters with the most members are selected and if there are ties, one of them are randomly selected.
+
 \end{document}
