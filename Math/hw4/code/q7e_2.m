@@ -25,7 +25,7 @@ for i = 1:1:K
     
     %do multiplication to figure out what is the scalar value
     %in the end
-    p = w * testData';
+    p = testData * w;
     p = p - b;
     
     %look at the states
@@ -36,7 +36,7 @@ for i = 1:1:K
     correctN = sum(testLabel((p < 0)) == -1);
     wrongN = sum(testLabel((p < 0)) ~= -1);
     totalN = sum(testLabel == -1);
-    %fprintf('%d & %d & %d & %f & %d & %d & %f %f \\\\ \\hline \n', ...
-    %    i,correctP,wrongP,correctP/totalP,correctN,wrongN,correctN/totalN,x/size(testLabel,1));
+    fprintf('%d & %d & %d & %f & %d & %d & %f %f \\\\ \\hline \n', ...
+        i,correctP,wrongP,correctP/totalP,correctN,wrongN,correctN/totalN,x/size(testLabel,1));
 end
 displayImage(save);
