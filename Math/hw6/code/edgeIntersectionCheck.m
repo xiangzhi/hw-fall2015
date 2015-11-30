@@ -30,9 +30,11 @@ for i = 1:1:size(edges,1)
 
             %ignore if the intersection point is at the end points
             if (ix == obE(1) & iy == obE(2))|(ix == obE(3) & iy == obE(4))
+                %fail = true;
                 continue
             end
             if (ix == startE(1) & iy == startE(2))|(ix == startE(3) & iy == startE(4))
+                %fail = true;
                 continue
             end
             

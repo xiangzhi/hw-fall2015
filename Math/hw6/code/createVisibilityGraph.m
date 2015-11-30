@@ -22,8 +22,58 @@ for k=1:length(obsticles)
     end
 end
 
-%now we generate a list for all edges on each obsticle to each
-obE
+%now we generate a list for all edges on each obsticle to each other.
+obE = [];
+for k=1:length(obsticles)
+    obsticle = obsticles{k};
+    for i = 1:1:size(obsticle,1)-1
+        basePoint = obsticle(i,:);
+        
+        %first make sure the base point is not inside any obsticle
+        interior = false;
+        for j=1:1:length(obsticles)
+            if j == i
+                continue;
+            end
+            checkOb = obsticles{j};
+            if checkPointInside(checkOb,basePoint)
+                interior = true;
+                break;
+            end
+        end
+        if interior
+            continue;
+        end
+        
+        
+        for j=k+1:1:length(obsticles)
+            checkOb = obsticles{j};
+            %make sure the base point is not inside the obsticle
+             if basePoint(1) >= min(checkOb(:,1)) & basePoint(1) <= max(checkOb(:,1));
+                if basePoint(2) >= min(checkOb(:,2)) & basePoint(2) <= max(checkOb(:,2));
+                    continue;
+                end
+             end
+            
+            
+            for z=1:1:size(checkOb,1)-1
+                
+                %if the current point is inside the obsticle
+                %ignore and move on
+                obz = checkOb(z,:);
+                if obz(1) >= min(obsticle(:,1)) & obz(1) <= max(obsticle(:,1));
+                    if obz(2) >= min(obsticle(:,2)) & obz(2) <= max(obsticle(:,2));
+                        continue;
+                    end
+                end
+                
+                
+                edge = [obsticle(i,:) checkOb(z,:)];
+                obE = [obE;edge];
+            end            
+        end
+    end
+end
 
 
 %there's also a edge between start and end
@@ -35,11 +85,12 @@ startEdges = [startEdges; edge];
 %an obsticle edge
 se = edgeIntersectionCheck(startEdges, obsticleEdges);
 ee = edgeIntersectionCheck(endEdges, obsticleEdges);
+oe = edgeIntersectionCheck(obE, obsticleEdges);
 
-edges = [se; ee; obsticleEdges];
+edges = [se; ee; oe; obsticleEdges];
 
 %generate a matrix that shows the link between vertices
-graphSize = max([prod(size(se)) prod(size(ee)) prod(size(obsticleEdges))]);
+graphSize = max([prod(size(se)) prod(size(oe)) prod(size(ee)) prod(size(obsticleEdges))]);
 
 locIndex = zeros(graphSize,2);
 locIndexPtr = 2;
@@ -54,7 +105,7 @@ while size(stack,1) ~= 0
     %see which vertices we are search for
     curSearch = stack(end,:);
     if size(stack,1) > 2
-        stack = stack(1:end-1,:)
+        stack = stack(1:end-1,:);
     else
         stack = [];
     end

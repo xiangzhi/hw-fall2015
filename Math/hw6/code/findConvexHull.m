@@ -2,6 +2,10 @@ function [ vertices ] = findConvexHull(input)
 %find the minimum convex hull based on the graham scan alogirthm
 %the basic idea was taken from the wikipedia page.
 
+%make sure the input are unique
+input = unique(input,'rows');
+
+
 %first check if there is only one or no points,
 %then just return that point.
 if(size(input,1) < 1)
@@ -33,24 +37,39 @@ minVec(1) = (minPoint(1) + 1);
 minVec = minVec - minPoint;
 drawConvex(input,[],minPoint);
 %minVec = intPoint - minPoint;
-%used an N^2 algorithm here, but it probablty still fine
-for i=1:1:size(input,1)
-    %calculate the two angles
-    pv = input(i,:) - minPoint;
-    %pv = intPoint - input(i,:);
-    ia = acos(dot(minVec, pv)/(norm(minVec) * norm(pv)));
-    for j=i:1:size(input,1)
-        pv = input(j,:) - minPoint;
-        %pv = intPoint - input(j,:);
-        ja = acos(dot(minVec,pv) /(norm(minVec) * norm(pv)));
-        if(ja < ia)
-            ia = ja;
-            tmp = input(i,:);
-            input(i,:) = input(j,:);
-            input(j,:) = tmp;
-        end
-    end
+
+%% N log N algo
+
+pvList = input - repmat(minPoint,size(input,1),1);
+angleList = ones(size(input,1),1);
+for i = 1:1:size(input,1)
+    angleList(i) = acos(dot(minVec, pvList(i,:))/(norm(minVec) * norm(pvList(i,:))));
 end
+[~,I] = sort(angleList);
+input = input(I,:);
+
+
+%% N^2
+% %used an N^2 algorithm here, but it probablty still fine
+% for i=1:1:size(input,1)
+%     %calculate the two angles
+%     pv = input(i,:) - minPoint;
+%     %pv = intPoint - input(i,:);
+%     ia = acos(dot(minVec, pv)/(norm(minVec) * norm(pv)));
+%     for j=i:1:size(input,1)
+%         pv = input(j,:) - minPoint;
+%         %pv = intPoint - input(j,:);
+%         ja = acos(dot(minVec,pv) /(norm(minVec) * norm(pv)));
+%         if(ja < ia)
+%             ia = ja;
+%             tmp = input(i,:);
+%             input(i,:) = input(j,:);
+%             input(j,:) = tmp;
+%         end
+%     end
+% end
+
+%% cont.
 
 %now the input list should be sorted, we start the gradham scan
 %add the first point back
@@ -91,6 +110,6 @@ while true
     end
     drawConvex(input,vertices,minPoint);
 end
-
+drawConvex(input,vertices,minPoint);
 end
 
