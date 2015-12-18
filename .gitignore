@@ -163,6 +163,3 @@ pythontex-files-*/
 *.bak
 *.sav
 
-#pdf lifes
-*.pdf
-

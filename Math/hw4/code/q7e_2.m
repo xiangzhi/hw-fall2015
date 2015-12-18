@@ -8,6 +8,7 @@ data = [positiveData;negativeData];
 labels = [ones(size(positiveData,1),1);ones(size(negativeData,1),1).* -1];
 %labels = [ones(size(negativeData,1),1);ones(size(positiveData,1),1).* -1];
 K = 10;
+averageAcc = zeros(K,1);
 indices = crossvalind('Kfold',size(data,1), K);
 save = zeros(1,784);
 for i = 1:1:K
@@ -38,5 +39,7 @@ for i = 1:1:K
     totalN = sum(testLabel == -1);
     fprintf('%d & %d & %d & %f & %d & %d & %f %f \\\\ \\hline \n', ...
         i,correctP,wrongP,correctP/totalP,correctN,wrongN,correctN/totalN,x/size(testLabel,1));
+    averageAcc(i) = x/size(testLabel,1);
 end
+disp(mean(averageAcc));
 displayImage(save);

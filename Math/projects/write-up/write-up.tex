@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{algorithm2e}
+\usepackage[margin=0.75in]{geometry}
+\usepackage[none]{hyphenat}
+\setcounter{secnumdepth}{4}
+\bibliographystyle{acm}%Choose a bibliograhpic style
+\usepackage[font=small,labelfont=bf]{caption}
+
+
+
+\begin{document}
+
+\title{3D Mouse: Using Manipulator Motion As Input}
+\author{Xiang Zhi Tan\\ xiangzht@andrew.cmu.edu}
+\maketitle
+
+\section{Introduction}
+\input{intro}
+\section{System Design}
+\input{sys}
+\section{Evaluation}
+\input{eval.tex}
+\section{Limitation and Future Work}
+Currently, there are mainly two limitation in this study, the first would be the unreliability of the training data set. The training dataset only consist of one user's movement and about 5000 samples from that user. An increase in sample size and also variation by different users might increase the reliability and accuracy of the system.\\
+The second limitation is our test set was only constructed from a same user from the test set with a very short duration. We only tested about 1500 samples which is equivalent to about 20 second worth of motion. A better test set would be constructed from multiple users that are sampled over a longer period of time, possibly about 5 minutes.\\
+Future iteration of the system will aim to address these issues by expanding both the test and training dataset. While the system is able to predict and classify state at real-time, the test set is still pre-recorded. The next step would be migrate the current system to the robot and test the system in real life.
+
+\section{Conclusion}
+In this study, we shown a proof-of-concept system on how to repurpose the robot's manipulator arm as an input device. We described how our system emulates a joystick by modeling each joint as a spring around an resting position and classifying the user's intended arm action into 7 different states using three different classification method with Logistic Regression having an accuracy of about $85\%$. In conclusion, our system shows that it is feasible in using the robot's arm as an input device and we are excited at the possible applications that could benefit from this method of interaction.
+
+\section{References}
+\begingroup
+\renewcommand{\section}[2]{}%
+\bibliography{reference}
+\endgroup
+
+\end{document}
